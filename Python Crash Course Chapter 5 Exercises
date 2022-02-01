@@ -1,7 +1,5 @@
 username_list = ['admin','barbara']
 
-# desktop edit test 
-
 # Exercise 5-8: Create a list of usernames. Print out a special message for the admin. 
 for username in username_list:
     if username == 'admin':

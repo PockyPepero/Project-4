@@ -1,0 +1,39 @@
+username_list = ['admin','barbara']
+
+# Exercise 5-8: Create a list of usernames. Print out a special message for the admin. 
+for username in username_list:
+    if username == 'admin':
+            print(f"Hello {username}, would you like a status report?")
+    else: 
+            print(f"Hello {username}, thank you for logging in again.")
+
+# Exercise 5-9: Make a list of usernames. Check if the username list is empty. Print a message if the username list is empty. 
+
+if bool(username_list) == False:
+    print("We need users")
+    
+
+# Exercise 5-10: Check a new list of usernames against an existing list for uniqueness. Make sure to consider different cases of the same username. 
+
+current_users = ['monica','erica','rita','tina','sandra']
+new_users = ['monica','erica','mary','jessica','olivia']
+
+for username in new_users:
+    username_case = username.lower()
+    if username_case in current_users:
+        print(f"You cannot user the username {username}. That username is taken. Please enter a new username.")
+    else:
+        print(f"The username {username} is available.")
+        
+# Exercise 5-11: Create a list with the numbers 1-9 and print out the corresponding ordinal numbers.
+
+numbers = ['1','2','3','4','5','6','7','8','9']
+for number in numbers:
+    if number == '1':
+        print(f"{number}st")
+    elif number == '2':
+        print(f"{number}nd")
+    elif number == '3':
+        print(f"{number}rd")
+    else:
+        print(f"{number}th")

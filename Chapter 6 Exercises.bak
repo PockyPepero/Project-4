@@ -22,7 +22,8 @@ fav_num_dict = {
 for key in fav_num_dict:
     print(f"{key}'s favorite number is {fav_num_dict[key]}")
 
-# Exercise 
+# Exercise 6.3 Create a dictionary of programming terminology and print the words and their deifnitions.
+
 glossary = {
     'string':'a data type characterized by being a set of characters',
     'float':'a data type characterized by being a number with a decimal value',
@@ -31,5 +32,35 @@ glossary = {
     'list':'a data type characterized by being a collection of items',
 }
 
-for key in glossary:
-    print(f"The definition of {key}:\n {glossary[key]}.")
+glossary = {
+    'string':'a data type characterized by being a set of characters',
+    'float':'a data type characterized by being a number with a decimal value',
+    'int':'a numeric data type with no decimal value',
+    'comment':'a block of text not executed by the program. it allows the programmer to explain what the code does',
+    'list':'a data type characterized by being a collection of items',
+}
+
+print(f"The definition of string is:\n {glossary['string']}")
+print(f"The definition of float is:\n {glossary['float']}")
+print(f"The definition of int is:\n {glossary['int']}")
+print(f"The definition of comment:\n is {glossary['comment']}")
+print(f"The definition of list:\n is {glossary['list']}")
+
+	
+# Exercise 6.4 Re-write exercise 6-3 by changing the print statements to a loop. Add 5 new python terms and their definitions. 
+	
+glossary2 = {
+    'string':'a data type characterized by being a set of characters',
+    'float':'a data type characterized by being a number with a decimal value',
+    'int':'a numeric data type with no decimal value',
+    'comment':'a block of text not executed by the program. it allows the programmer to explain what the code does',
+    'list':'a data type characterized by being a collection of items',
+	'tuple':'an immutable set of values',
+	'conditional test':'a statement that evaluates to True or False',
+	'Boolean expression':'a statement that evaluates to True or False',
+	'Boolean value':'a value that is either True or False',
+	'dictionary':'a collection of key-value pairs',
+}
+
+for key in glossary2:
+    print(f"The definition of {key}:\n {glossary2[key]}.")

@@ -182,3 +182,18 @@ for person in people:
     print(f"{person['name'].title()}'s favorite place(s) is/are:")
     for place in person['favorite_places']:
         print(place.title())
+		
+# Exercise 6.10. Take the code from 6.2 and change it so that people can have multiple favorite numbers.
+
+fav_num_dict = {
+    'Angela':['1','2'],
+    'Pamela':['3','4','5'],
+    'Sandra':['6'], 
+    'Rita':['7','8'], 
+    'Monica':['9'],
+}
+
+for person, numbers in fav_num_dict.items():
+    print(f"{person}'s favorite number(s) is/are:")
+    for number in numbers:
+        print(number)

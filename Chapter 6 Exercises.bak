@@ -182,3 +182,79 @@ for person in people:
     print(f"{person['name'].title()}'s favorite place(s) is/are:")
     for place in person['favorite_places']:
         print(place.title())
+		
+# Exercise 6.10. Take the code from 6.2 and change it so that people can have multiple favorite numbers.
+
+fav_num_dict = {
+    'Angela':['1','2'],
+    'Pamela':['3','4','5'],
+    'Sandra':['6'], 
+    'Rita':['7','8'], 
+    'Monica':['9'],
+}
+
+for person, numbers in fav_num_dict.items():
+    print(f"{person}'s favorite number(s) is/are:")
+    for number in numbers:
+        print(number)
+		
+# Exercise 6.11: Make a dictionary called cities, with three cities as the keys. For each city, make a dictionary and include the following information about each city: its country, its population, and one fact about the city. Print the name of each city and its information. 
+
+cities = {
+    'Paris':{
+        'country':'France',
+        'population':'2.161 million',
+        'fact':'There are 1,665 steps to get to the top of the Eiffel Tower.',
+        },
+    'London':{
+        'country':'England',
+        'population':'8.982 million',
+        'fact':'Due to its tree density, London qualifies as a forest according to the UN.',
+        },
+    'Barcelona':{
+        'country':'Spain',
+        'population':'1.62 million',
+        'fact':'Barcelona has the largest football stadium in Europe.',
+        },
+}
+
+for cityname, facts in cities.items():
+    print(f"Here are some facts about {cityname}:")
+    for key,value in facts.items():
+        print(f"{key}: {value}")
+    print("\n")
+	
+
+
+# Exercise 6.12 Take one of the programs from the chapter, add new keys and values, change the context of the program, or improve the formatting of the output.
+# Sample: I took the code that stores and prints people's favorite programming languages (favorite_languages.py).
+# I added lists of programming, scripting, and markup languages. I checked each person's list and counted how many programming, scripting, and markup languages they likes. 
+# I printed out how many of each type each person likes. 
+
+favorite_languages = {
+    'angela':['C','javascript'],
+    'pamela':['C++','java'],
+    'sandra':['php','perl'],
+    'rita':['HTML','CSS']
+}
+
+programming_languages = ['C','C++','C#','java']
+scripting_languages = ['javascript','php','perl','vbscript']
+markup_languages = ['HTML','CSS','XML']
+
+for key,value in favorite_languages.items():
+    program_count = 0
+    scripting_count = 0
+    markup_count = 0
+    print(f"{key}'s favorite_language(s) is/are:")
+    for language in value:
+        print(language)
+    for language in value:
+        if language in programming_languages:
+            program_count = program_count + 1
+        if language in scripting_languages:
+            scripting_count = scripting_count + 1
+        if language in markup_languages:
+            markup_count = markup_count + 1
+    print(f"{key} likes {program_count} programming languages, {scripting_count} scripting languages, and {markup_count} markup languages." )
+    print("\n")

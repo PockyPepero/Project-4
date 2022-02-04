@@ -84,21 +84,3 @@ for river, country in river_glossary.items():
 print("The countries included in this dictionary are:")
 for river, country in river_glossary.items():
     print(country)
-	
-# Exercise 6.6 Make a list of people to take the favorite languages poll. Include some people who have already been polled and some who have not. 
-# Thank the people who have taken the poll. If someone has not taken the poll, ask them to.
-
-favorite_languages = {
-    'jen':'python',
-    'sarah':'c',
-    'edward':'ruby',
-    'phil':'python',
-}
-
-people = ['sandra','jessica','sarah','edward']
-
-for person in people:
-    if person in favorite_languages.keys():
-        print(f"{person.title()}, thank you for taking the language poll!")
-    else:
-        print(f"{person.title()}, please take the favorite language poll!")

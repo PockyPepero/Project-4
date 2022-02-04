@@ -84,3 +84,77 @@ for river, country in river_glossary.items():
 print("The countries included in this dictionary are:")
 for river, country in river_glossary.items():
     print(country)
+	
+# Exercise 6.6 Make a list of people to take the favorite languages poll. Include some people who have already been polled and some who have not. 
+# Thank the people who have taken the poll. If someone has not taken the poll, ask them to.
+
+favorite_languages = {
+    'jen':'python',
+    'sarah':'c',
+    'edward':'ruby',
+    'phil':'python',
+}
+
+people = ['sandra','jessica','sarah','edward']
+
+for person in people:
+    if person in favorite_languages.keys():
+        print(f"{person.title()}, thank you for taking the language poll!")
+    else:
+        print(f"{person.title()}, please take the favorite language poll!")
+		
+		
+# Exercise 6.7 Take the code you wrote in exercise 6.1. Add two new dictionaries for two new people's info. Store all the dictionaries in a list. 
+# Loop through the list and print the info about each person.
+
+dict = {
+    'firstname':'Rarris',
+    'lastname':'Gumami',
+    'age':'26',
+    'city':'Atlanta',
+}
+
+bert_dict = {
+    'firstname':'Bert',
+    'lastname':'Monster',
+    'age':'49',
+    'city':'New York',
+}
+
+ernie_dict = {
+    'firstname':'Ernie',
+    'lastname':'Monster',
+    'age':'15',
+    'city':'New York',
+}
+
+people = [dict, bert_dict, ernie_dict]
+
+for person in people:
+    print(f"{person['firstname']}'s last name is {person['lastname']}. They are {person['age']} years old. They live in {person['city']}.")
+	
+	
+# Exercise 6.8 Create dictionaries to represent different pets. In each dictionary, add the animal species and name. Store the dictionaries in a list. Loop through the list and print the info about each pet.
+
+pet1 = {
+    'petname':'Angela',
+    'species':'dog',
+    'owner':'Rita',
+}
+
+pet2 = {
+    'petname':'Pamela',
+    'species':'cat',
+    'owner':'Monica',
+}
+
+pet3 = {
+    'petname':'Sandra',
+    'species':'fish',
+    'owner':'Erica',
+}
+
+pets = [pet1, pet2, pet3]
+
+for pet in pets:
+    print(f"{pet['petname']} is a {pet['species']}. They are owned by {pet['owner']}.")

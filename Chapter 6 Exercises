@@ -102,3 +102,83 @@ for person in people:
         print(f"{person.title()}, thank you for taking the language poll!")
     else:
         print(f"{person.title()}, please take the favorite language poll!")
+		
+		
+# Exercise 6.7 Take the code you wrote in exercise 6.1. Add two new dictionaries for two new people's info. Store all the dictionaries in a list. 
+# Loop through the list and print the info about each person.
+
+dict = {
+    'firstname':'Rarris',
+    'lastname':'Gumami',
+    'age':'26',
+    'city':'Atlanta',
+}
+
+bert_dict = {
+    'firstname':'Bert',
+    'lastname':'Monster',
+    'age':'49',
+    'city':'New York',
+}
+
+ernie_dict = {
+    'firstname':'Ernie',
+    'lastname':'Monster',
+    'age':'15',
+    'city':'New York',
+}
+
+people = [dict, bert_dict, ernie_dict]
+
+for person in people:
+    print(f"{person['firstname']}'s last name is {person['lastname']}. They are {person['age']} years old. They live in {person['city']}.")
+	
+	
+# Exercise 6.8 Create dictionaries to represent different pets. In each dictionary, add the animal species and name. Store the dictionaries in a list. Loop through the list and print the info about each pet.
+
+pet1 = {
+    'petname':'Angela',
+    'species':'dog',
+    'owner':'Rita',
+}
+
+pet2 = {
+    'petname':'Pamela',
+    'species':'cat',
+    'owner':'Monica',
+}
+
+pet3 = {
+    'petname':'Sandra',
+    'species':'fish',
+    'owner':'Erica',
+}
+
+pets = [pet1, pet2, pet3]
+
+for pet in pets:
+    print(f"{pet['petname']} is a {pet['species']}. They are owned by {pet['owner']}.")
+	
+# Exercise 6.9. Make a dictionary with people's names and their favorite places. Let the keys be the peoples' names. Store 1-3 favorite places for each person. Loop through the dictionaries and print the names and places.
+
+person1 = {
+    'name':'angela',
+    'favorite_places':['london', 'paris', 'barcelona'],
+}
+
+person2 = {
+    'name':'pamela',
+    'favorite_places':['istanbul','rome'],
+}
+
+person3 = {
+    'name':'sandra',
+    'favorite_places':['dublin'],
+}
+
+people = [person1, person2, person3]
+
+for person in people:
+    print(f"{person['name'].title()}'s favorite place(s) is/are:")
+    for place in person['favorite_places']:
+        print(place.title())

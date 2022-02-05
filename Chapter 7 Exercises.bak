@@ -85,8 +85,3 @@ while active:
     else:
         print(f"I've added {topping} to your pizza.")
         topping = input(prompt)
-		
-# Exercise 7.7: Write a loop that never ends. To end the loop, Ctrl-C or exit the output window.
-		
-while True:
-    print("hello")

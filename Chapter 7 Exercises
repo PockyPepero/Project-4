@@ -90,3 +90,63 @@ while active:
 		
 while True:
     print("hello")
+	
+# Exercise 7.8: Make a list called sandwich_orders and fill it with sandwich names. Make an empty list called finished_sandwiches. Loop through the list of sandwich orders
+# and print a message for each sandwich that gets made. When a sandwich is made, move the name to the finished_sandwiches list. Print a final list of the finished sandwiches.
+
+sandwich_orders = ['grilled cheese', 'BLT','turkey club']
+finished_sandwiches = []
+
+while sandwich_orders:
+   finished_sandwich = sandwich_orders.pop()
+   print(f"Your {finished_sandwich} has been made. ")
+   finished_sandwiches.append(finished_sandwich)
+   
+print(f"Here is a list of the finished sandwiches: {finished_sandwiches}. ")
+
+# Exercise 7.9: Modify the code from 7.8. Add the word pastrami at least three times to the list. Loop through the list, removing all instances of pastrami. 
+# Then have the code run as before. Print a message at the beginning saying the deli has run out of pastrami.
+
+print("The deli has run out of pastrami.")
+
+sandwich_orders = ['grilled cheese','pastrami', 'pastrami', 'BLT','turkey club','pastrami']
+finished_sandwiches = []
+
+while 'pastrami' in sandwich_orders:
+    sandwich_orders.remove('pastrami')
+while sandwich_orders:
+   finished_sandwich = sandwich_orders.pop()
+   print(f"Your {finished_sandwich} has been made. ")
+   finished_sandwiches.append(finished_sandwich)
+   
+print(f"Here is a list of the finished sandwiches: {finished_sandwiches}. ")
+
+# Exercise 7.10: Write a program to ask users about their dream vacation. Store user's names and dream vacation in a dictionary. Print the results of the poll. 
+
+responses = {}
+
+polling_flag = True
+continue_flag = True
+
+while polling_flag == True:
+    name = input("\nWhat is your name? ")
+    dream = input("\nWhat is your dream vacation? ")
+    
+    responses[name] = dream
+    
+    repeat_check = input("Is there anyone else who needs to be polled? Enter Yes or No. ").lower()
+    
+    continue_flag = True
+    
+    while continue_flag == True:
+        if repeat_check == 'yes':
+            continue_flag = False
+        elif repeat_check == 'no':
+            continue_flag = False
+            polling_flag = False
+        else:
+            print("Please enter yes or no.")
+            repeat_check = input("is there anyone else who needs to be polled? Enter Yes or No. ").lower()
+            
+for name, dream in responses.items():
+    print(f"{name.title()}'s dream vacation is: {dream}")

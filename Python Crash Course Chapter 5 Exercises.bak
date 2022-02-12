@@ -36,46 +36,17 @@ print("Is fish == 'beta'? I predict false.")
 print(fish == 'beta')
 
 
-# Exercise 5.2: Write more comparisons and tests. 
 
-fruit = 'apple'
-print("Using string inequalities:\n")
-print("My fruit is an apple.")
-print(f"Is my fruit an apple? The answer is {fruit == 'apple'}." )
-print(f"Is my fruit NOT an apple? The answer is {fruit != 'apple'}.\n" )
 
-print("Using the lower method:\n")
-print("My fruit is an apple.")
-print(f"Is Apple the same as apple? If I use the lower method, the answer is {fruit == 'Apple'.lower()}." )
-print(f"If I do not use the lower method, the answer is {fruit == 'Apple'}." )
 
-print("Using mathematical operations:\n")
-print(f"Is 2 equal to 2? The answer is {2 == 2}.")
-print(f"Is 2 equal to 3? The answer is {2 == 3}.")
-print(f"Is 2 greater than 3? The answer is {2 > 3}.")
-print(f"Is 2 less than 3? The answer is {2 < 3}.")
-print(f"Is 2 greater than or equal to 2? The answer is {2 >= 2}.")
-print(f"Is 2 greater than or equal to 3? The answer is {2 >= 3}.")
 
-print("Using the and/or keywords:\n")
-print(f"Is 5 less than 8 OR greater than 6? {5 < 8 or 5 > 6}.")
-print(f"Is 5 less than 8 AND greater than 6? {5 < 8 and 5 > 6}.")
 
-print("Using lists:\n")
-fruit = ['apple','banana','cantaloupe']
-myfruit = 'apple'
-yourfruit = 'orange'
 
-if myfruit in fruit:
-    print(f"{myfruit.title()} is in the list.")
-if yourfruit in fruit:
-    print(f"{yourfruit.title()} is in the list.")
-    
-    
-if myfruit not in fruit:
-    print(f"{myfruit.title()} is not in the list.")
-if yourfruit not in fruit:
-    print(f"{yourfruit.title()} is not in the list.")
+
+
+
+
+
 
 
 # Exercise 5-8: Create a list of usernames. Print out a special message for the admin. 

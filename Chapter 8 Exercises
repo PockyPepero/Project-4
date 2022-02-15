@@ -1,0 +1,6 @@
+#Exercise 8.1: Write the function display_message(). Use it to print out a sentence saying what you're learning in this chapter. Call the function.
+
+def display_message():
+    print("I am learning about functions in this chapter.")
+    
+display_message()

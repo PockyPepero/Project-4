@@ -1,6 +1,13 @@
-#Exercise 8.1: Write the function display_message(). Use it to print out a sentence saying what you're learning in this chapter. Call the function.
+# Exercise 8.1: Write the function display_message(). Use it to print out a sentence saying what you're learning in this chapter. Call the function.
 
 def display_message():
     print("I am learning about functions in this chapter.")
     
 display_message()
+
+# Exercise 8.2: Write the function favorite_book() that accepts the parameter title and returns a print message saying that it is your favorite book. 
+
+def favorite_book(title):
+    print(f"{title.title()} is one of my favorite books.")
+    
+favorite_book("The grapes of wrath")

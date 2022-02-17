@@ -11,3 +11,35 @@ def favorite_book(title):
     print(f"{title.title()} is one of my favorite books.")
     
 favorite_book("The grapes of wrath")
+
+# Exercise 8.3: Write a function make_shirt() that accepts size and a message to be printed on it. Make the function print a sentence that contains the size and message. Call the function once using positional arguments, and another time using keyword arguments.
+
+# Using positional arguments.
+def make_shirt(size, text):
+    print(f"Your shirt is in size {size}. The shirt will say: {text}")
+
+# Using keyword arguments.
+def make_shirt2(size='L', text='hello world!'):
+    print(f"Your shirt is in size {size}. The shirt will say: {text}")
+    
+make_shirt("L", "hello world!")
+make_shirt2()
+
+# Exercise 8.4 Modify the make_shirt() function from the previous exercise. Make L the default size and the default message be I Love Python. Make a large shirt with the default message. Make a medium shirt with the default message. Make a shirt of any size with a different message.
+
+def make_shirt(size='L', text='I love Python'):
+    print(f"Your shirt is in size {size}. The shirt will say: {text}")
+    
+make_shirt()
+make_shirt(size='M')
+make_shirt(size='M', text='I love Java')
+
+# Exercise 8.5 Write the function describe_city(). It should accept two parameters, the name of a city and the name ofa  country. Make the function print a sentence describing the city and the country. The country parameter should have a default value. Call the function for three different cities. At least one of the city should not be in the default country.
+
+def describe_city(city, country='France'):
+    print(f"{city.title()} is in {country}. ")
+    
+describe_city('Paris')
+describe_city('Lyon')
+describe_city('London', country='England')
+

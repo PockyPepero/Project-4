@@ -102,3 +102,46 @@ while True:
     aa_pair = make_album(artist_name, album_name)
     print(aa_pair)
 
+# Exercise 8.9: Create a list with a series of short messages. Pass the list to a function called show_messages(). 
+# Have the function print each message. 
+
+def show_messages(messages):
+    for message in messages:
+        print(message)
+        
+message_list = ['hi','lol','wyd']
+show_messages(message_list)
+
+# Exercise 8.10: Modify the program from exercise 8.9. 
+# Have the send_messages() function print each message and move it to a list called sent_messages. 
+# After calling the function, print both lists.  
+
+def show_messages(messages):
+    while messages:
+        current_message = messages.pop()
+        print(current_message)
+        sent_messages.append(current_message)
+        
+message_list = ['hi','lol','wyd']
+sent_messages = []
+show_messages(message_list)
+
+print(sent_messages)
+print(message_list)
+
+# Exercise 8.11: Modify the program from exercise 8.10. 
+# Pass a copy of the list of messages to the function. 
+# Print both lists to demonstrate the original list remains unchanged. 
+
+def show_messages(messages):
+    while messages:
+        current_message = messages.pop()
+        print(current_message)
+        sent_messages.append(current_message)
+        
+message_list = ['hi','lol','wyd']
+sent_messages = []
+show_messages(message_list[:])
+
+print(sent_messages)
+print(message_list)

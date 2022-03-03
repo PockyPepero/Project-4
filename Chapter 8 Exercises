@@ -145,3 +145,34 @@ show_messages(message_list[:])
 
 print(sent_messages)
 print(message_list)
+
+# Exercise 8.12: Write a function that accepts a list of items a person wants on a sandwich. The function should have one parameter that accepts any number of items when the function is called. The function should print a summary of the sandwich and its ingredients. Call the function three times, using a different number of arguments each time. 
+
+def sandwiches(bread,*toppings):
+    print(f"Your sandwich has {bread} bread with the following ingredients:\n{toppings}")
+    
+sandwiches('rye','ham','swiss')
+sandwiches('white','bacon','lettuce','tomatoes')
+sandwiches('sourdough','turkey','lettuce','tomatoes','mayonnaise')
+
+# Exercise 8.13: Take the code from user_profile.py (provided in the book on page 149.) Build a profile for yourself using your first and last name, as well as three other key-value pairs that describe you. 
+
+def build_profile(first,last,**user_info):
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+    
+user_profile = build_profile('will','vandom',age='13',location='heatherfield',power='heart')
+
+print(user_profile)
+
+# Exercise 8.14: Write a function that stores information about a car in a dictionary. The function should accept a manufacturer and a model name. It should also accept an arbitrary number of keyword arguments. Call the function with two other name-value pairs. Print the dictionary. 
+
+def cars(make,model,**kwargs):
+    kwargs['make_name'] = make
+    kwargs['model_name'] = model
+    return kwargs
+    
+car_info = cars('toyota','camry',color='white',engine='v6')
+print(car_info)
+

@@ -192,4 +192,7 @@ completed_models = []
 print_models(unprinted_designs,completed_models)
 show_completed_models(completed_models)
 
-# Exercise 8.17
+# Exercise 8.17: Write a program that has one function in it. Store that function in a separate file. 
+# Import the function, store it in a separate file, and import the function into the main program.
+# Call the function the following approaches.
+

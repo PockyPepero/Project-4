@@ -196,3 +196,17 @@ show_completed_models(completed_models)
 # Import the function, store it in a separate file, and import the function into the main program.
 # Call the function the following approaches.
 
+# Only use one at a time. The file that has my test function is called test_fun. I am running it from another file. 
+# My function is called test_fun and it prints out a statement saying the import worked.
+
+#import test_fun
+#from test_fun import print_test
+#from test_fun import print_test as fn
+#import test_fun as mn. 
+#from test_fun import *
+
+print_test()
+
+#fn() use this if you imported your function as fn
+
+

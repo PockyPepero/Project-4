@@ -192,7 +192,7 @@ completed_models = []
 print_models(unprinted_designs,completed_models)
 show_completed_models(completed_models)
 
-# Exercise 8.17: Write a program that has one function in it. Store that function in a separate file. 
+# Exercise 8.16: Write a program that has one function in it. Store that function in a separate file. 
 # Import the function, store it in a separate file, and import the function into the main program.
 # Call the function the following approaches.
 
@@ -208,5 +208,34 @@ show_completed_models(completed_models)
 print_test()
 
 #fn() use this if you imported your function as fn
+
+# Exercise 8.17: Take one of the programs you wrote in this chapter. 
+# Make sure it follows the style guides described in the book.
+# I will use the one I wrote for exercise 8.8
+
+def make_album(artist, album, songnumber=None):
+	"""Makes a dictionary with an artist and album name.
+	Also has an optional argument for the number of songs in the album.
+	The function returns the user's input as a dictionary.
+	"""
+    album_dict = {'artist_name': artist, 'album_name': album, 'song_count':songnumber}
+    return album_dict
+
+while True:
+	"""This loop prompts the user to enter the name of an artist and their album.
+	The loop allows the user to quit any time by entering 'q' when prompted.
+	The loop uses the make_album function to add the user's input to a dictionary.
+	""" 
+    print("\Enter the name of an artist.")
+    print("Enter 'q' at any time to quit.")
+    artist_name = input("What is the name of the artist? ")
+    if artist_name == 'q':
+        break
+    album_name = input("What is the name of their album? ")
+    if album_name == 'q':
+        break
+    aa_pair = make_album(artist_name, album_name)
+    print(aa_pair)
+
 
 

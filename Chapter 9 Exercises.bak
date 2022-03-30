@@ -35,3 +35,85 @@ restaurant3 = Restaurant("Mellow Mushroom",'Italian')
 restaurant1.describe_restaurant()
 restaurant2.describe_restaurant()
 restaurant3.describe_restaurant()
+
+# Exercise 9.3: Make a class called User. Create two attributes called first_name and last_name.
+# Create other attributes associated with a user profile.
+# Make the method describe_user() that prints a summary of the user's information.
+# Make the method greet_user() that prints a greeting to the user.
+# Create multiple instances for multiple users, and call both methods for each user.
+
+class User:
+    """Collects and prints data about users."""
+
+    def __init__(self, first_name, last_name, username, join_date, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.username = username
+        self.join_date = join_date
+        self.age = age
+
+    def describe_user(self):
+        print(f"The user {self.username} joined on {self.join_date}. ")
+        print(f"Their name is {self.first_name} {self.last_name}. ")
+        print(f"They are {self.age} years old. \n")
+
+    def greet_user(self):
+        print(f"Hello {self.first_name}, how are you today?\n")
+
+user1 = User('Marinette','Dupain-Cheng','marinettedesigned','03/28/2022','14')
+user1.describe_user()
+user1.greet_user()
+
+user1 = User('Adrien','Agreste','adrianagrestebrand','10/2/2022','14')
+user1.describe_user()
+user1.greet_user()
+
+user1 = User('Alya','Cesaire','itsalya.ladyblogger','6/24/2022','14')
+user1.describe_user()
+user1.greet_user()
+
+# Exercise 9.4: Start with the program from exercise 9.1.
+# Add the attribute number_served w/ a default value of 0. 
+# Create an instance called restaurant from the class. 
+# Print the number of customers served. Change the value and print it again.
+# Add the method set_number_served() that sets the number of customers served.
+# Call that method w/ a new number and print the value again.
+# Add the method increment_number_served() that increments the number of customers.
+# Call that method w/ a number to increment the count by/
+
+
+class Restaurant:
+    """Models a restaurant. 
+    Has methods that state the name, cuisine type, and a message saying it's open."""
+
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.number_served = 0
+
+    def describe_restaurant(self):
+        print(f"The restaurant is named {self.restaurant_name} and it serves {self.cuisine_type} food. ")
+
+    def open_restaurant(self):
+        print(f"{self.restaurant_name} is open! ")
+
+    def set_number_served(self, newcount):
+        self.number_served = newcount
+
+    def increment_number_served(self,inc):
+        self.number_served += inc
+
+restaurant = Restaurant('PF Chang\'s','Chinese')
+print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+
+restaurant.number_served = 2
+print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+
+restaurant.set_number_served(5)
+print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+
+restaurant.increment_number_served(10)
+print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+
+
+

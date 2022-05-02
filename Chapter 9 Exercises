@@ -159,3 +159,77 @@ print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). 
 
 user1.reset_login_attempts()
 print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). ")
+
+# Exercise 9.6: Start with the code from 9.1 or 9.4. 
+# Write a class called IceCreamStand that inherits from the Restaurant class. 
+# Add the attribute flavors that stores a list of ice cream flavors. 
+# Write a method that displays these flavors.
+# Create an instance of IceCreamStand and call this method.
+
+class Restaurant:
+    """Models a restaurant. 
+    Has methods that state the name, cuisine type, and a message saying it's open."""
+
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+
+    def describe_restaurant(self):
+        print(f"The restaurant is named {self.restaurant_name} and it serves {self.cuisine_type} food. ")
+
+    def open_restaurant(self):
+        print(f"{self.restaurant_name} is open! ")
+
+class IceCreamStand(Restaurant):
+    def __init__(self,restaurant_name, cuisine_type,flavors):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.flavors = flavors
+
+    def display_flavors(self):
+        print(f"{self.restaurant_name} serves ice cream. The following ice cream flavors are available: {self.flavors}")
+
+
+my_icecreamstand = IceCreamStand('Sonic','fast food',['strawberry','vanilla','chocolate'])
+my_icecreamstand.display_flavors()
+
+# Exercise 9.7: Start with the code from 9.3. 
+# Write a class called Admin that inherits from the User class.
+# Add an attribute called privileges that stores a list of strings describing admin privileges.
+# Write a method called show_privileges() that lists the admin's set of privileges. 
+# Create an instance of Admin and call your method.
+
+class User:
+    """Collects and prints data about users."""
+
+    def __init__(self, first_name, last_name, username, join_date, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.username = username
+        self.join_date = join_date
+        self.age = age
+        self.isAdmin = False
+
+    def describe_user(self):
+        print(f"The user {self.username} joined on {self.join_date}. ")
+        print(f"Their name is {self.first_name} {self.last_name}. ")
+        print(f"They are {self.age} years old. \n")
+
+    def greet_user(self):
+        print(f"Hello {self.first_name}, how are you today?\n")
+
+class Admin(User):
+    def __init__(self, first_name, last_name, username, join_date, age, privileges):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.username = username
+        self.join_date = join_date
+        self.age = age
+        self.privileges = privileges
+
+    def show_privileges(self):
+        print(f"The user {self.username} is an admin. They have the following admin privileges: {self.privileges}")
+
+
+user1 = Admin('Gabriel','Agreste','agreste','09/01/2022','50',['can add post','can delete post','can ban user'])
+user1.show_privileges()

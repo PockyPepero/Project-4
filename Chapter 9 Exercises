@@ -115,5 +115,47 @@ print(f"{restaurant.restaurant_name} has served {restaurant.number_served} peopl
 restaurant.increment_number_served(10)
 print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
 
-# testing desktop app
+# Exercise 9.5 Start with the code from 9.3. Write a method called increment_login_attempts()
+# that increments the value of login_attempts by 1. Write another method called reset_login_attempts()
+# that resets the value of login_attempts() to 0. 
+# Make an instance of the User class and call increment_login_attempts() multiple times.
+# Print the value of login_attempts()
+# Call reset_login_attempts().
+# Print login_attempts again and check if it is 0. 
 
+class User:
+    """Collects and prints data about users."""
+
+    def __init__(self, first_name, last_name, username, join_date, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.username = username
+        self.join_date = join_date
+        self.age = age
+        self.login_attempts = 0
+
+    def describe_user(self):
+        print(f"The user {self.username} joined on {self.join_date}. ")
+        print(f"Their name is {self.first_name} {self.last_name}. ")
+        print(f"They are {self.age} years old. \n")
+
+    def greet_user(self):
+        print(f"Hello {self.first_name}, how are you today?\n")
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+
+user1 = User('Marinette','Dupain-Cheng','marinettedesigned','03/28/2022','14')
+print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). ")
+
+user1.increment_login_attempts()
+user1.increment_login_attempts()
+user1.increment_login_attempts()
+print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). ")
+
+user1.reset_login_attempts()
+print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). ")

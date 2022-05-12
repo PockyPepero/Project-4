@@ -279,7 +279,7 @@ user1 = Admin('Gabriel','Agreste','agreste','09/01/2022','50')
 print(f"Regarding the user {user1.username}:")
 user1.privileges.show_privileges()
 
-# Use the finalized electric_car.py from this chapter. 
+# Exercise 9.9 Use the finalized electric_car.py from this chapter. 
 # Add the method upgrade_battery() to the Battery class.
 # This method should check to see if the battery size is 100.
 # If the battery is not 100, the method should change the battery size to 100.
@@ -356,3 +356,70 @@ my_tesla = ElectricCar('tesla','model s','2019')
 my_tesla.battery.get_range()
 my_tesla.battery.upgrade_battery()
 my_tesla.battery.get_range()
+
+# For exercises 9.10, simply follow the directions and make sure your import works and your code still functions.
+
+# Exercise 9.10: Store the latest version of the Restaurant class in a module. 
+# Make a separate file that imports Restaurant
+# Call one of the methods from Restaurant 
+
+# Make a restaurant.py module with the Restaurant class
+# In a separate file, write and run
+from restaurant import Restaurant
+my_restaurant = Restaurant("Olive Garden", "Italian")
+my_restaurant.describe_restaurant()
+
+# Exercise 9.11: Take the code from Exercise 9.8. 
+# Store the User, Privileges, and Admin classes in one module.
+# Create a separate file, make an Admin instance, and call show_privileges()
+
+# Make a users.py module with the User, Privileges, and Admin classes
+# Create a separate file, write and run
+from users import User, Privileges, Admin
+user1 = Admin('Gabriel','Agreste','agreste','09/01/2022','50')
+user1.privileges.show_privileges()
+
+# Exercise 9.12: Store the User class in a module.
+# Store the Privileges and Admin classes in a separate module. 
+# In a separate file, create an Admin instance and call show_privileges()
+
+# In the Privileges and Admin module, write
+from user import *
+
+# In a new file admin.py, store the Admin and Privileges classes
+# In a separate file, write and run
+from admin import Admin, Privileges
+user1 = Admin('Gabriel','Agreste','agreste','09/01/2022','50')
+user1.privileges.show_privileges()
+
+# Exercise 9.13: Make the class Die with the attribute sides. 
+# Make the default value of sides equal to 6.
+# Write the method roll_die() that prints a random number between 1 and the side number.
+# Make a 6-sided die and roll it 10 times. 
+# Make a 10-sided die and roll it 10 times.
+# Make a 20-sided die and roll it 10 times.
+
+from random import *
+class Die:
+    """A simulation for rolling a die."""
+    def __init__(self, sides=6):
+        self.sides = sides
+
+    def roll_die(self):
+        print (f"On a {self.sides}-sided die, you rolled a {randint(1,self.sides)}. ")
+
+
+D6 = Die()
+for i in range(10):
+    D6.roll_die()
+
+D10 = Die(10)
+for i in range(10):
+    D10.roll_die()
+
+D20 = Die(20)
+for i in range(10):
+    D20.roll_die()
+
+
+# Exercise 9.14

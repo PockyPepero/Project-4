@@ -1,0 +1,33 @@
+# Exercise 9.14: Make a list or tuple containing 10 numbers and five letters.
+# Randomly select four numbers or letters from the list.
+# Print a message saying any ticket matching these four numbers/letters wins a prize.
+
+from random import *
+
+lotto_list = ['1','2']
+winning_ticket = []
+
+for i in range(2):
+    winning_ticket.append(choice(lotto_list))
+
+print("If your ticket matches these numbers/letters, you win!")
+print(winning_ticket)
+
+# Exercise 9.15: Make a list or tuple called my_ticket.
+# Write a loop that pulls numbers until your ticket wins.
+# Print a message saying how many times the loop had to run for you to win.
+
+# Note: It will take a long time to find a winning ticket.
+# Consider testing a smaller set to make sure your code works.
+
+my_ticket = []
+n = 0
+
+while my_ticket != winning_ticket:
+    my_ticket = []
+    for i in range(2):
+        my_ticket.append(choice(lotto_list))
+    n += 1
+    print(my_ticket)
+
+print(f"It took you {n} time(s) to get a winning ticket!")

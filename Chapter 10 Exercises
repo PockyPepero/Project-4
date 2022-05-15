@@ -1,0 +1,36 @@
+# Exercise 10.1: Open a blank file in the a text editor.
+# Write a few sentences about Python.
+# Start each line with the phrase 'In Python you can...'
+# Save the file as learning_python.txt in the same directory as the chapter exercises.
+# Write a program that reads this file and prints the contents three times:
+# once by reading the entire file,
+# once by looping over the file object,
+# and once by storing the lines in a list and then using them outside the with block.
+
+with open('learning_python.txt') as file_object:
+    contents = file_object.read()
+print(contents.rstrip())
+print("\n")
+
+with open('learning_python.txt') as file_object:
+    for line in file_object:
+        print(line.rstrip())
+print("\n")
+
+with open('learning_python.txt') as file_object:
+    lines = file_object.readlines()
+
+for line in lines:
+    print(line.rstrip())
+print("\n")
+
+# Exercise 10.2: Use the replace() method to replace each word in a string with a different word.
+# Syntax: replace('original_word','new_word')
+# Read each line from the file in exercise 10.1 and replace 'Python' with the name of another language.
+
+with open('learning_python.txt') as file_object:
+    lines = file_object.readlines()
+
+for line in lines:
+    print(line.rstrip().replace('Python','Java'))
+print("\n")

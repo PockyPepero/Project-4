@@ -1,0 +1,3 @@
+In Python, you can write code.
+In Python, you can work with user input.
+In Python, you can work with data. 

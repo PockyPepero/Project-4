@@ -4,29 +4,31 @@
 
 from random import *
 
-lotto_list = ['1','2']
+lotto_list = ['1','2','3','4','5','6','7','8','9','A','B','C','D','E']
 winning_ticket = []
 
-for i in range(2):
-    winning_ticket.append(choice(lotto_list))
+while len(winning_ticket) < 4:
+    pick = choice(lotto_list)
+    if pick not in winning_ticket:
+        winning_ticket.append(pick)
+
+winning_ticket.sort()
 
 print("If your ticket matches these numbers/letters, you win!")
 print(winning_ticket)
 
 # Exercise 9.15: Make a list or tuple called my_ticket.
-# Write a loop that pulls numbers until your ticket wins.
+# Write a loop that pulls tickets until you get a winning ticket.
 # Print a message saying how many times the loop had to run for you to win.
-
-# Note: It will take a long time to find a winning ticket.
-# Consider testing a smaller set to make sure your code works.
 
 my_ticket = []
 n = 0
 
 while my_ticket != winning_ticket:
     my_ticket = []
-    for i in range(2):
+    for i in range(4):
         my_ticket.append(choice(lotto_list))
+    my_ticket.sort()
     n += 1
     print(my_ticket)
 

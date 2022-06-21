@@ -1,0 +1,97 @@
+# Exercise 2.1: Assign a message to a variable, and then print that message.
+
+message = "hello!"
+print(message)
+
+# Exercise 2.2: Assign a message to a variable, and then print that message.
+# Then change the value of the variable to a message, and print the new message.
+
+message = "hello!"
+print(message)
+
+message = "goodbye!"
+print(message)
+
+# Exercise 2.3: Use a variable to represent a person's name, and print a message to that person.
+# Keep the message simple. 
+
+name = "Alice"
+
+print(f"Hello {name}, how are you today?")
+
+# Exercise 2.4: Use a variable to represent a person's name.
+# Print that person's name in lowercase, uppercase, and title case.
+
+name = 'Alice'
+print(f"{name.lower()}")
+print(f"{name.upper()}")
+print(f"{name.title()}")
+
+# Exercise 2.5: Find a quote from a famous person you admire.
+# Print the quote and the name of its author.
+# The output should include the quote in quotation marks.
+
+print('Cassius once said, "The fault lies not in our stars, but in ourselves."')
+
+# Exercise 2.6: Repeat exercise 2.5.
+# This time represent the famous person's name using the variable "famous_person.""
+# Represent the quote with the variable "message".
+# Print the message.
+
+message = '"The fault lies not in our stars, but in ourselves."'
+famous_person = 'Cassius'
+print(f"{famous_person.title()} once said, {message}")
+
+# Exercise 2.7: Use a variable to represent a person's name.
+# Include some whitespace characters at the beginning and end of the name.
+# Include "\t" and "\n" at least once.
+# Print the name once, so the whitespace around the name is displayed.
+# Then print the name using lstrip(), rstrip(), and strip().
+
+name = '\tAlice \n'
+print(name)
+print(name.lstrip())
+print(name.rstrip())
+print(name.strip())
+
+# Exercise 2.8: Write addition, subtraction, multiplication, and division operations that all sum to 8.
+# Print the results of each operation.
+
+print(2+6)
+print(10-2)
+print(2*4)
+print(int(16/2))
+
+# Exercise 2.9: Use a variable to represent your favorite number. 
+# Using that variable, create a message that reveals your favorite number.
+# Print that message.
+
+fav_num = 2
+print(f"My favorite number is {fav_num}.")
+
+# Exercise 2.10: Choose two programs written so far.
+# Add at least one comment to each.
+
+# Changed the contents of number_eight.py to:
+
+# Written for Exercise 2.8.
+# This program shows addition, subtraction, multiplication, and division problems that all sum to 8.
+# The division line requires an int() to convert the result from a float to an int.
+
+print(2+6)
+print(10-2)
+print(2*4)
+print(int(16/2))
+
+# Changed the contents of fav_num.py to:
+
+# Written for Exercise 2.9.
+# This program stores a favorite number as the variable fav_num.
+# This program prints out a message saying what the user's favorite number is.
+
+fav_num = 2
+print(f"My favorite number is {fav_num}.")
+
+# Exercise 2.11: Enter import this into a python terminal session and skim through the principles.
+
+import this

@@ -34,3 +34,220 @@ with open('learning_python.txt') as file_object:
 for line in lines:
     print(line.rstrip().replace('Python','Java'))
 print("\n")
+
+# Exercise 10.3: Write a program that prompts the user for their name. 
+# When they respond, write their name to a file called guest.txt.
+
+guests = 'guest.txt'
+guest_name = input("What is your name?")
+
+with open(guests,'w') as guests:
+    guests.write(f"{guest_name}")
+
+# Exercise 10.4: Write a while loop that prompts users for their name.
+# When they enter the name, print a greeting to the screen.
+# Record their name in a file called guest_book.txt.
+# Make sure each entry is on a new line.
+
+guest_book = 'guest_book.txt'
+
+with open(guest_book,'a') as guest_book:
+    while True:
+        guest_name = input("What is your name? To exit, enter q.")
+        if guest_name == "q":
+            break
+        else: 
+            guest_book.write(f"{guest_name.title()}\n")
+            print(f"Hello {guest_name}! Thank you for signing the book!\n")
+
+# Exercise 10.5: Write a while loop that asks people why they like programming. 
+# Each time someone enters a reason, add the reason to a file that stores all the previous responses.
+
+reasons_to_program = 'reasons_to_program .txt'
+
+with open(reasons_to_program,'a') as reasons_to_program:
+    while True:
+        reason = input("Why do you like to program? To exit, enter q.")
+        if reason == "q":
+            break
+        else: 
+            reasons_to_program.write(f"{reason}\n")
+            print(f"Thank you for adding to the list.\n")
+
+# Exercise 10.6: Write a program that lets the user input two numbers.
+# Have the program add them together and print the result.
+# Catch the ValueError if either input is not a number.
+# Print an erorr message. 
+
+try:
+    num1 = float(input("This program will add two numbers together.\nEnter your first number: "))
+except ValueError:
+    print("That is not a valid number. Please try again.")
+
+try:
+    num2 = float(input("\nEnter your second number: "))
+except ValueError:
+    print("That is not a valid number. Please try again.")
+
+sum = num1 + num2
+print(f"The sum of your numbers is: {sum}")
+
+# Exercise 10.7: Wrap the code from 10.6 in a while loop 
+# so the user can continue entering numbers after they accidentally enter a non-number.
+
+while True:
+    try:
+        num1 = float(input("This program will add two numbers together.\nEnter your first number: "))
+        break
+    except ValueError:
+        print("That is not a valid number. Please try again.")
+
+while True:
+    try:
+        num2 = float(input("\nEnter your second number: "))
+        break
+    except ValueError:
+        print("That is not a valid number. Please try again.")
+
+sum = num1 + num2
+print(f"The sum of your numbers is: {sum}")
+
+# Exercise 10.8: Make two files cats.txt and dogs.txt. 
+# Store three names of cats in the cats file.
+# Store three names of dogs in the dogs file.
+# Use a try-except block to catch the FileNotFound error.
+# Print a message if the file is missing.
+# Move one of the files to some other directory on the system.
+# Make sure the code in the except block executes.
+
+
+def print_content(file):
+    """Attempts to read a file and print out the contents of the file."""
+    try:
+        with open(file, encoding='utf-8') as f:
+            contents = f.read()
+            print(f"These are the contents of the file:\n{contents}")
+    except FileNotFoundError:
+        print(f"Sorry, the file {file} does not exist.")
+
+files = ['cats.txt','dogs.txt']
+for file in files:
+    print_content(file)
+
+# Exercise 10.9: Modify your except block in Exercise 10-8 to fail silently if either file is missing.
+
+def print_content(file):
+    """Attempts to read a file and print out the contents of the file."""
+    try:
+        with open(file, encoding='utf-8') as f:
+            contents = f.read()
+            print(f"These are the contents of the file:\n{contents}")
+    except FileNotFoundError:
+        pass
+
+files = ['cats.txt','dogs.txt']
+for file in files:
+    print_content(file)
+
+# Exercise 10.10 Visit Project Gutenberg (gutenberg.org) and find some texts to analyze.
+# Download the text files or copy-paste the raw text to a .txt file on your computer.
+# Use the count() method to count how many times the word 'the' appears in each text.
+# Try using 'the ' with a space after it, and see how your count changes.
+
+def word_count(file,word):
+    """Attempts to read a file and count the number of instances of a given word."""
+    try:
+        with open(file, encoding='utf-8') as f:
+            contents = f.read()
+            word_count = contents.lower().count(word)
+            print(f"The word {word} appears {word_count} times in {file}. ")
+    except FileNotFoundError:
+        pass
+
+files = ['hamlet.txt','julius_caesar.txt','romeo_and_juliet.txt']
+for file in files:
+    word_count(file,'the') # 'the' without a space includes words starting with 'the', like 'then'
+    word_count(file,'the ') # 'the ' with a space after it only counts the word 'the'
+
+
+# Exercise 10.11: Write a program that prompts for the user's favorite number.
+# Use json.dump() to store this number in a file.
+# Write a separate program that reads in this value 
+# and prints the message "I know your favorite number! It's ___"
+
+#file 1
+
+import json
+
+while True:
+    try:
+        fav_num = float(input("What is your favorite number?"))
+        break
+
+    except ValueError:
+        print("That is not a number. Please enter a number.")
+
+filename = 'favnum.json'
+
+with open(filename, 'w') as f:
+    json.dump(fav_num, f)
+    print("I'll remember your favorite number for when you come back.")
+
+# file 2
+
+import json
+
+with open(filename) as f:
+    fav_num = json.load(f)
+    print(f"I know your favorite number! It's {fav_num}.")
+
+# Exercise 10.12: Combine the two programs from exercise 10.11 into one file.
+# If there is already a stored number, report the favorite number to the user.
+# If there is no stored number, prompt for the user's favorite number
+# and store it in a file.
+# Run the program twice to verify that it works properly.
+
+import json
+
+def record_fav_number():
+    filename = 'favnum.json'
+    while True:
+        try:
+            fav_num = float(input("What is your favorite number?"))
+            break
+        except ValueError:
+            print("That is not a number. Please enter a number.")
+    with open(filename, 'w') as f:
+            json.dump(fav_num, f)
+            print("I'll remember your favorite number for when you come back.")
+
+def say_fav_number():
+    fav_num = retrieve_fav_number()
+    if fav_num:
+        print(f"I know your favorite number! It's {fav_num}.")
+    else:
+        fav_num = record_fav_number()
+
+def retrieve_fav_number():
+    filename = 'favnum.json'
+    try:
+        with open (filename) as f:
+            fav_num = json.load(f)
+    except FileNotFoundError:
+        return None
+    else:
+        return fav_num
+
+
+say_fav_number()
+
+        
+
+
+
+
+
+
+
+
+

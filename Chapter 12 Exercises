@@ -1,0 +1,269 @@
+# Exercise 12.1: Make a Pygame window with a blue background.
+
+# Note: This code is the same as the code in the book.
+# The only thing changed was the attribute self.bg_color in settings.py
+# self.bg_color = (173, 216, 230) or pick some other shade of blue.
+
+# Contents of alien_invasion.py:
+
+import sys
+import pygame
+from settings import Settings
+from ship import Ship
+
+class AlienInvasion():
+    """Overall class to manage game assets and behavior."""
+
+    def __init__(self):
+        """Initialize the game, and create game resources."""
+        pygame.init()
+        self.settings = Settings()
+
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        pygame.display.set_caption("Alien Invasion")
+
+    def run_game(self):
+        """Start the main loop for the game."""
+        while True:
+            self._check_events()
+            self._update_screen()
+
+    def _check_events(self):
+        """Respond to keypresses and mouse events."""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+    def _update_screen(self):
+        """Update images on the screen, and flip to the new screen."""
+        self.screen.fill(self.settings.bg_color)
+
+        pygame.display.flip()
+
+
+if __name__ == '__main__':
+    # Make a game instance, and run the game.
+    ai = AlienInvasion()
+    ai.run_game()
+
+# Contents of settings.py: 
+
+class Settings:
+    """A class to store the settings for Alien Invasion."""
+
+    def __init__(self):
+        """Initialize the game's settings."""
+        # Screen settings.
+        self.screen_width = 1200
+        self.screen_height = 800
+        self.bg_color = (173, 216, 230)
+
+# Exercise 12.2: Find a .bmp image of a character you like. 
+# Make a class that draws the character at the center of the screen.
+# Make sure the background color of the character matches the background color of the screen.
+
+# I made two new files: newgame.py to store and manage the primary game assets
+# playchar.py to store and manage the playable character assets.
+
+# Contents of newgame.py:
+
+import sys
+import pygame
+from settings import Settings
+from playchar import PlayChar
+
+class NewGame():
+    """Overall class to manage game assets and behavior."""
+
+    def __init__(self):
+        """Initialize the game, and create game resources."""
+        pygame.init()
+        self.settings = Settings()
+
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        pygame.display.set_caption("New Game")
+
+        self.ship = PlayChar(self)
+
+    def run_game(self):
+        """Start the main loop for the game."""
+        while True:
+            self._check_events()
+            self._update_screen()
+
+    def _check_events(self):
+        """Respond to keypresses and mouse events."""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+    def _update_screen(self):
+        """Update images on the screen, and flip to the new screen."""
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+
+        pygame.display.flip()
+
+
+if __name__ == '__main__':
+    # Make a game instance, and run the game.
+    ai = NewGame()
+    ai.run_game()
+
+# Contents of playchar.py
+
+import pygame
+
+class PlayChar:
+    """A class to manage the player character."""
+
+    def __init__(self, ai_game):
+        """Initialize the player character and their starting position."""
+        self.screen = ai_game.screen
+        self.screen_rect = ai_game.screen.get_rect()
+
+        # Load the character and get its rect.
+        self.image = pygame.image.load('images/guy.bmp')
+        self.rect = self.image.get_rect()
+
+        # Start each new player character at the center of the screen.
+        self.rect.center = self.screen_rect.center
+
+    def blitme(self):
+        """Draw the character at their current location."""
+        self.screen.blit(self.image, self.rect)
+
+# Exercise 12.3: Look at the Pygame documentation on pygame.org/docs/
+
+# Exercise 12.4: Make a game that begins with a rocket in the center of the screen.
+# Allow the player to move the rocket up, down, left, or right using the four arrow keys.
+# Make sure the rocket cannot move past the boundaries of the screen.
+
+# Contents of alien_invasion_v2.py
+
+import sys
+import pygame
+from settings import Settings
+from ship import Ship
+
+class AlienInvasion():
+    """Overall class to manage game assets and behavior."""
+
+    def __init__(self):
+        """Initialize the game, and create game resources."""
+        pygame.init()
+        self.settings = Settings()
+
+        # fullscreen mode. remove comments to enable fullscreen mode.
+        #self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN) # tells pygame to find the window size to fill the screen
+        #self.settings.screen_width = self.screen.get_rect().width
+        #self.settings.screen_height = self.screen.get_rect().height
+
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        pygame.display.set_caption("Alien Invasion")
+
+        self.ship = Ship(self)
+
+    def run_game(self):
+        """Start the main loop for the game."""
+        while True:
+            self._check_events()
+            self.ship.update()
+            self._update_screen()
+
+    def _check_events(self):
+        """Respond to keypresses and mouse events."""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                self._check_keydown_events(event)
+            elif event.type == pygame.KEYUP:
+                self._check_keyup_events(event)
+    
+    def _check_keydown_events(self, event):
+        """Respond to keypresses."""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = True
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = True
+        elif event.key == pygame.K_UP:
+            self.ship.moving_up = True
+        elif event.key == pygame.K_DOWN:
+            self.ship.moving_down = True
+        elif event.key == pygame.K_q:
+            sys.exit()
+
+    def _check_keyup_events(self, event):
+        """Respond to key releases."""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False
+        if event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
+        if event.key == pygame.K_UP:
+            self.ship.moving_up = False
+        if event.key == pygame.K_DOWN:
+            self.ship.moving_down = False
+
+
+    def _update_screen(self):
+        """Update images on the screen, and flip to the new screen."""
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+
+        pygame.display.flip()
+
+
+if __name__ == '__main__':
+    # Make a game instance, and run the game.
+    ai = AlienInvasion()
+    ai.run_game()
+
+# Contents of ship.py
+
+import pygame
+
+class Ship:
+    """A class to manage the ship."""
+
+    def __init__(self, ai_game):
+        """Initialize the ship and its starting position."""
+        self.screen = ai_game.screen
+        self.settings = ai_game.settings
+        self.screen_rect = ai_game.screen.get_rect()
+
+        # Load the ship and get its rect.
+        self.image = pygame.image.load('images/ship.bmp')
+        self.rect = self.image.get_rect()
+
+        # Start each new ship at the center.
+        self.rect.center = self.screen_rect.center
+
+        # Store decimal values for the ship's horizontal and vertical positions
+        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
+
+        # Movement flags
+        self.moving_right = False
+        self.moving_left = False
+        self.moving_up = False
+        self.moving_down = False
+
+    def update(self):
+        """Update the ship's position based on the movement flag."""
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.x += self.settings.ship_speed
+        if self.moving_left and self.rect.left > 0: # we use if rather than elif to allow L and R keys to have equal priority 
+            self.x -= self.settings.ship_speed
+        if self.moving_up and self.rect.top > self.screen_rect.top:
+            self.y -= self.settings.ship_speed
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
+            self.y += self.settings.ship_speed
+
+        # Update rect object from self.x and self.y
+        self.rect.x = self.x
+        self.rect.y = self.y
+
+    def blitme(self):
+        """Draw the ship at its current location."""
+        self.screen.blit(self.image, self.rect)

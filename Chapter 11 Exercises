@@ -1,0 +1,113 @@
+# Exercise 11.1: Write a function that accepts two parameters (a city name and a country name).
+# The function should return a string with the format City, Country.
+# Store this function in a module called city_functions.py.
+# Create a file called test_cities.py that tests the function.
+# Write a method called test_city_country() to test the function.
+# Run test_cities.py and make sure the test passes.
+
+# Contents of city_functions.py:
+
+def city_country(city,country):
+    city_country_name = f"{city}, {country}"
+    return city_country_name.title()
+
+# Contents of test_cities.py:
+
+import unittest
+from city_functions import city_country
+
+class CityCountryTestCase(unittest.TestCase):
+    """Tests for city_functions.py."""
+
+    def test_city_country_name(self):
+        "Do city, country strings display properly, with capitalization?"
+        formatted_name = city_country('santiago','chile')
+        self.assertEqual(formatted_name,'Santiago, Chile')
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+# Exercise 11.2: Modify the function from 11.1 so it requires a third parameter (population). 
+# The function should return the string in the format City, Country - population ___
+# Run the test again. Make sure the test fails this time.
+# Then modify the function again and make sure the test function passes.
+# Write a second test called test_city_country_population()
+# and test the function with the values 'santiago', 'chile', and 'population=5000000'.
+# Run test_cities.py again and make sure the new test passes.
+
+# Contents of city_functions.py:
+
+def city_country(city, country, population=''):
+    city_country_name = f"{city}, {country} - Population: {population}"
+    return city_country_name.title()
+
+# Contents of test_cities.py:
+
+import unittest
+from city_functions import city_country
+
+class CityCountryTestCase(unittest.TestCase):
+    """Tests for city_functions.py."""
+
+    def test_city_country_population(self):
+        "Do city, country, population strings display properly, with capitalization?"
+        formatted_name = city_country('santiago','chile','5000000')
+        self.assertEqual(formatted_name,'Santiago, Chile - Population: 5000000')
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+# Exercise 11.3: Write a class called Employee.
+# The __init__() method should take a first name, last name, and annual salary.
+# Store these as a ttributes.
+# Write a method called give_raise() that adds 5k to the salary by default,
+# but can also take some other raise amount.
+# Write a test case for Employee. Write two test methods, 
+# test_give_default_raise() and test_give_custom_raise(). 
+# Use the setUp() method to create an employee to use in both tests.
+# Run the tests and make sure both pass.
+
+# Contents of employee.py
+
+class Employee:
+    """Stores employee info: first name, last name, and salary.
+    Also contains a method for giving an employee a raise, with a default of 5k."""
+    def __init__(self, first_name, last_name, salary):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.salary = float(salary)
+    
+    def give_raise(self,raise_amt=float(5000)):
+        self.salary = raise_amt + self.salary
+        return f"{self.first_name} {self.last_name} now has a salary of: {self.salary}"
+
+
+# Contents of test_employee.py
+
+import unittest
+from employee import Employee
+
+class TestEmployeeRaise(unittest.TestCase):
+    """Testing the give_raise method for the Employee class."""
+    
+    def setUp(self):
+        """Create an employee for use in all test methods."""
+        self.my_employee = Employee('John','Smith',50000)
+
+    def test_give_default_raise(self):
+        self.assertEqual(self.my_employee.give_raise(),f"John Smith now has a salary of: {float(55000)}")
+
+    def test_give_custom_raise(self):
+        self.assertEqual(self.my_employee.give_raise(10000),f"John Smith now has a salary of: {float(60000)}")
+        
+if __name__ == '__main__':
+    unittest.main()
+
+
+
+
+
+
+

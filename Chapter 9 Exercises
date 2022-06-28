@@ -1,19 +1,25 @@
-# Exercise 9.1: Make a class called Restaurant. Have the __init__ method store two attributes: restaurant_name and cuisine_type. 
-# Make a method called describe_restaurant() that prints the the name and cuisine type. 
-# Make a method called open_restaurant() that prints a message saying the restaurant is open.
+# Exercise 9.1: Make a class called Restaurant. 
+# Have the __init__ method store two attributes: 
+# restaurant_name and cuisine_type. 
+# Make a method called describe_restaurant() 
+# that prints the the name and cuisine type. 
+# Make a method called open_restaurant() 
+# that prints a message saying the restaurant is open.
 # Make an instance called restaurant from this class. 
 # Print the two attributes individually and then call both methods.
 
 class Restaurant:
     """Models a restaurant. 
-    Has methods that state the name, cuisine type, and a message saying it's open."""
+    Has methods that state the name, cuisine type, 
+    and a message saying it's open."""
 
     def __init__(self, restaurant_name, cuisine_type):
         self.restaurant_name = restaurant_name
         self.cuisine_type = cuisine_type
 
     def describe_restaurant(self):
-        print(f"The restaurant is named {self.restaurant_name} and it serves {self.cuisine_type} food. ")
+        print(f"""The restaurant is named {self.restaurant_name} 
+        and it serves {self.cuisine_type} food. """)
 
     def open_restaurant(self):
         print(f"{self.restaurant_name} is open! ")
@@ -36,11 +42,14 @@ restaurant1.describe_restaurant()
 restaurant2.describe_restaurant()
 restaurant3.describe_restaurant()
 
-# Exercise 9.3: Make a class called User. Create two attributes called first_name and last_name.
+# Exercise 9.3: Make a class called User. 
+# Create two attributes called first_name and last_name.
 # Create other attributes associated with a user profile.
-# Make the method describe_user() that prints a summary of the user's information.
+# Make the method describe_user() 
+# that prints a summary of the user's information.
 # Make the method greet_user() that prints a greeting to the user.
-# Create multiple instances for multiple users, and call both methods for each user.
+# Create multiple instances for multiple users, 
+# and call both methods for each user.
 
 class User:
     """Collects and prints data about users."""
@@ -78,13 +87,15 @@ user1.greet_user()
 # Print the number of customers served. Change the value and print it again.
 # Add the method set_number_served() that sets the number of customers served.
 # Call that method w/ a new number and print the value again.
-# Add the method increment_number_served() that increments the number of customers.
+# Add the method increment_number_served() 
+# that increments the number of customers.
 # Call that method w/ a number to increment the count by.
 
 
 class Restaurant:
     """Models a restaurant. 
-    Has methods that state the name, cuisine type, and a message saying it's open."""
+    Has methods that state the name, cuisine type, 
+    and a message saying it's open."""
 
     def __init__(self, restaurant_name, cuisine_type):
         self.restaurant_name = restaurant_name
@@ -92,7 +103,8 @@ class Restaurant:
         self.number_served = 0
 
     def describe_restaurant(self):
-        print(f"The restaurant is named {self.restaurant_name} and it serves {self.cuisine_type} food. ")
+        print(f"""The restaurant is named {self.restaurant_name} 
+        and it serves {self.cuisine_type} food. """)
 
     def open_restaurant(self):
         print(f"{self.restaurant_name} is open! ")
@@ -104,21 +116,28 @@ class Restaurant:
         self.number_served += inc
 
 restaurant = Restaurant('PF Chang\'s','Chinese')
-print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+print(f"""{restaurant.restaurant_name} 
+has served {restaurant.number_served} people. """)
 
 restaurant.number_served = 2
-print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+print(f"""{restaurant.restaurant_name} has served 
+{restaurant.number_served} people. """)
 
 restaurant.set_number_served(5)
-print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+print(f"""{restaurant.restaurant_name} has served 
+{restaurant.number_served} people. """)
 
 restaurant.increment_number_served(10)
-print(f"{restaurant.restaurant_name} has served {restaurant.number_served} people. ")
+print(f"""{restaurant.restaurant_name} has served 
+{restaurant.number_served} people. """)
 
-# Exercise 9.5 Start with the code from 9.3. Write a method called increment_login_attempts()
-# that increments the value of login_attempts by 1. Write another method called reset_login_attempts()
+# Exercise 9.5 Start with the code from 9.3. 
+# Write a method called increment_login_attempts()
+# that increments the value of login_attempts by 1. 
+# Write another method called reset_login_attempts()
 # that resets the value of login_attempts() to 0. 
-# Make an instance of the User class and call increment_login_attempts() multiple times.
+# Make an instance of the User class 
+# and call increment_login_attempts() multiple times.
 # Print the value of login_attempts()
 # Call reset_login_attempts().
 # Print login_attempts again and check if it is 0. 
@@ -150,15 +169,18 @@ class User:
 
 
 user1 = User('Marinette','Dupain-Cheng','marinettedesigned','03/28/2022','14')
-print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). ")
+print(f"""{user1.username} has attempted to login 
+{user1.login_attempts} time(s). """)
 
 user1.increment_login_attempts()
 user1.increment_login_attempts()
 user1.increment_login_attempts()
-print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). ")
+print(f"""{user1.username} has attempted to login 
+{user1.login_attempts} time(s). """)
 
 user1.reset_login_attempts()
-print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). ")
+print(f"""{user1.username} has attempted to login 
+{user1.login_attempts} time(s). """)
 
 # Exercise 9.6: Start with the code from 9.1 or 9.4. 
 # Write a class called IceCreamStand that inherits from the Restaurant class. 
@@ -168,14 +190,16 @@ print(f"{user1.username} has attempted to login {user1.login_attempts} time(s). 
 
 class Restaurant:
     """Models a restaurant. 
-    Has methods that state the name, cuisine type, and a message saying it's open."""
+    Has methods that state the name, cuisine type, 
+    and a message saying it's open."""
 
     def __init__(self, restaurant_name, cuisine_type):
         self.restaurant_name = restaurant_name
         self.cuisine_type = cuisine_type
 
     def describe_restaurant(self):
-        print(f"The restaurant is named {self.restaurant_name} and it serves {self.cuisine_type} food. ")
+        print(f"""The restaurant is named {self.restaurant_name} 
+        and it serves {self.cuisine_type} food. """)
 
     def open_restaurant(self):
         print(f"{self.restaurant_name} is open! ")
@@ -187,16 +211,20 @@ class IceCreamStand(Restaurant):
         self.flavors = flavors
 
     def display_flavors(self):
-        print(f"{self.restaurant_name} serves ice cream. The following ice cream flavors are available: {self.flavors}")
+        print(f"""{self.restaurant_name} serves ice cream. 
+        The following ice cream flavors are available: {self.flavors}""")
 
 
-my_icecreamstand = IceCreamStand('Sonic','fast food',['strawberry','vanilla','chocolate'])
+my_icecreamstand = IceCreamStand('Sonic','fast food',
+['strawberry','vanilla','chocolate'])
 my_icecreamstand.display_flavors()
 
 # Exercise 9.7: Start with the code from 9.3. 
 # Write a class called Admin that inherits from the User class.
-# Add an attribute called privileges that stores a list of strings describing admin privileges.
-# Write a method called show_privileges() that lists the admin's set of privileges. 
+# Add an attribute called privileges 
+# that stores a list of strings describing admin privileges.
+# Write a method called show_privileges() 
+# that lists the admin's set of privileges. 
 # Create an instance of Admin and call your method.
 
 class User:
@@ -219,7 +247,10 @@ class User:
         print(f"Hello {self.first_name}, how are you today?\n")
 
 class Admin(User):
-    def __init__(self, first_name, last_name, username, join_date, age, privileges):
+    def __init__(
+        self, first_name, last_name, username, join_date, 
+        age, privileges):
+
         self.first_name = first_name
         self.last_name = last_name
         self.username = username
@@ -228,15 +259,19 @@ class Admin(User):
         self.privileges = privileges
 
     def show_privileges(self):
-        print(f"The user {self.username} is an admin. They have the following admin privileges: {self.privileges}")
+        print(f"""The user {self.username} is an admin. 
+        They have the following admin privileges: {self.privileges}""")
 
 
-user1 = Admin('Gabriel','Agreste','agreste','09/01/2022','50',['can add post','can delete post','can ban user'])
+user1 = Admin('Gabriel','Agreste','agreste','09/01/2022','50',
+        ['can add post','can delete post','can ban user'])
 user1.show_privileges()
 
 # Exercise 9.8: Start with the code from 9.7.
-# Write a separate Privileges class with one attribute, privileges, that stores a list of privileges.
-# Move the show_privileges() method from the Admin class to the Privileges class. 
+# Write a separate Privileges class with one attribute, privileges, 
+# that stores a list of privileges.
+# Move the show_privileges() method 
+# from the Admin class to the Privileges class. 
 # Make a Privileges instance as an attribute in the Admin class. 
 # Create a new instance of Admin and use your method to show its privileges.
 
@@ -264,7 +299,8 @@ class Privileges():
         self.privileges = privileges
 
     def show_privileges(self):
-        print(f"This user is an admin. They have the following admin privileges: {self.privileges}")
+        print(f"""This user is an admin. 
+        They have the following admin privileges: {self.privileges}""")
 
 class Admin(User):
     def __init__(self, first_name, last_name, username, join_date, age):
@@ -273,7 +309,8 @@ class Admin(User):
         self.username = username
         self.join_date = join_date
         self.age = age
-        self.privileges = Privileges(['can add post','can delete post','can ban user'])
+        self.privileges = Privileges(
+            ['can add post','can delete post','can ban user'])
 
 user1 = Admin('Gabriel','Agreste','agreste','09/01/2022','50')
 print(f"Regarding the user {user1.username}:")
@@ -357,7 +394,8 @@ my_tesla.battery.get_range()
 my_tesla.battery.upgrade_battery()
 my_tesla.battery.get_range()
 
-# For exercises 9.10, simply follow the directions and make sure your import works and your code still functions.
+# For exercises 9.10, simply follow the directions 
+# and make sure your import works and your code still functions.
 
 # Exercise 9.10: Store the latest version of the Restaurant class in a module. 
 # Make a separate file that imports Restaurant
@@ -394,7 +432,8 @@ user1.privileges.show_privileges()
 
 # Exercise 9.13: Make the class Die with the attribute sides. 
 # Make the default value of sides equal to 6.
-# Write the method roll_die() that prints a random number between 1 and the side number.
+# Write the method roll_die() 
+# that prints a random number btwn 1 and the side number.
 # Make a 6-sided die and roll it 10 times. 
 # Make a 10-sided die and roll it 10 times.
 # Make a 20-sided die and roll it 10 times.
@@ -406,7 +445,8 @@ class Die:
         self.sides = sides
 
     def roll_die(self):
-        print (f"On a {self.sides}-sided die, you rolled a {randint(1,self.sides)}. ")
+        print(f"""On a {self.sides}-sided die, 
+        you rolled a {randint(1,self.sides)}. """)
 
 
 D6 = Die()
@@ -424,7 +464,8 @@ for i in range(10):
 
 # Exercise 9.14: Make a list or tuple containing 10 numbers and five letters.
 # Randomly select four numbers or letters from the list.
-# Print a message saying any ticket matching these four numbers/letters wins a prize.
+# Print a message saying 
+# any ticket matching these four numbers/letters wins a prize.
 
 from random import *
 
@@ -458,5 +499,6 @@ while my_ticket != winning_ticket:
 
 print(f"It took you {n} time(s) to get a winning ticket!")
 
-# Exercise 9.16: Go to pmotw.com and read about a python module of your choosing.
+# Exercise 9.16: 
+# Visit pmotw.com and read about a python module of your choosing.
 # I personally chose the calendar module. 

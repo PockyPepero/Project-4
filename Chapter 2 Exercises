@@ -12,7 +12,8 @@ print(message)
 message = "goodbye!"
 print(message)
 
-# Exercise 2.3: Use a variable to represent a person's name, and print a message to that person.
+# Exercise 2.3: Use a variable to represent a person's name, 
+# and print a message to that person.
 # Keep the message simple. 
 
 name = "Alice"
@@ -34,7 +35,7 @@ print(f"{name.title()}")
 print('Cassius once said, "The fault lies not in our stars, but in ourselves."')
 
 # Exercise 2.6: Repeat exercise 2.5.
-# This time represent the famous person's name using the variable "famous_person.""
+# Represent the famous person's name using the variable "famous_person.""
 # Represent the quote with the variable "message".
 # Print the message.
 
@@ -54,7 +55,8 @@ print(name.lstrip())
 print(name.rstrip())
 print(name.strip())
 
-# Exercise 2.8: Write addition, subtraction, multiplication, and division operations that all sum to 8.
+# Exercise 2.8: Write addition, subtraction, multiplication, 
+# and division operations that all sum to 8.
 # Print the results of each operation.
 
 print(2+6)
@@ -75,8 +77,10 @@ print(f"My favorite number is {fav_num}.")
 # Changed the contents of number_eight.py to:
 
 # Written for Exercise 2.8.
-# This program shows addition, subtraction, multiplication, and division problems that all sum to 8.
-# The division line requires an int() to convert the result from a float to an int.
+# This program shows addition, subtraction, multiplication, 
+# and division problems that all sum to 8.
+# The division line requires an int() 
+# to convert the result from a float to an int.
 
 print(2+6)
 print(10-2)
@@ -92,6 +96,7 @@ print(int(16/2))
 fav_num = 2
 print(f"My favorite number is {fav_num}.")
 
-# Exercise 2.11: Enter import this into a python terminal session and skim through the principles.
+# Exercise 2.11: Enter import this into a python terminal session.
+# Skim through the principles.
 
 import this

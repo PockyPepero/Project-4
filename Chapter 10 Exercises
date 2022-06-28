@@ -1,11 +1,13 @@
 # Exercise 10.1: Open a blank file in the a text editor.
 # Write a few sentences about Python.
 # Start each line with the phrase 'In Python you can...'
-# Save the file as learning_python.txt in the same directory as the chapter exercises.
+# Save the file as learning_python.txt 
+# in the same directory as the chapter exercises.
 # Write a program that reads this file and prints the contents three times:
 # once by reading the entire file,
 # once by looping over the file object,
-# and once by storing the lines in a list and then using them outside the with block.
+# and once by storing the lines in a list 
+# and then using them outside the with block.
 
 with open('learning_python.txt') as file_object:
     contents = file_object.read()
@@ -24,9 +26,11 @@ for line in lines:
     print(line.rstrip())
 print("\n")
 
-# Exercise 10.2: Use the replace() method to replace each word in a string with a different word.
+# Exercise 10.2: Use the replace() method 
+# to replace each word in a string with a different word.
 # Syntax: replace('original_word','new_word')
-# Read each line from the file in exercise 10.1 and replace 'Python' with the name of another language.
+# Read each line from the file in exercise 10.1 
+# and replace 'Python' with the name of another language.
 
 with open('learning_python.txt') as file_object:
     lines = file_object.readlines()
@@ -61,7 +65,8 @@ with open(guest_book,'a') as guest_book:
             print(f"Hello {guest_name}! Thank you for signing the book!\n")
 
 # Exercise 10.5: Write a while loop that asks people why they like programming. 
-# Each time someone enters a reason, add the reason to a file that stores all the previous responses.
+# Each time someone enters a reason, 
+# add the reason to a file that stores all the previous responses.
 
 reasons_to_program = 'reasons_to_program .txt'
 
@@ -80,7 +85,8 @@ with open(reasons_to_program,'a') as reasons_to_program:
 # Print an erorr message. 
 
 try:
-    num1 = float(input("This program will add two numbers together.\nEnter your first number: "))
+    num1 = float(input("""This program will add two numbers together.
+    \nEnter your first number: """))
 except ValueError:
     print("That is not a valid number. Please try again.")
 
@@ -93,11 +99,13 @@ sum = num1 + num2
 print(f"The sum of your numbers is: {sum}")
 
 # Exercise 10.7: Wrap the code from 10.6 in a while loop 
-# so the user can continue entering numbers after they accidentally enter a non-number.
+# so the user can continue entering numbers 
+# after they accidentally enter a non-number.
 
 while True:
     try:
-        num1 = float(input("This program will add two numbers together.\nEnter your first number: "))
+        num1 = float(input("""This program will add two numbers together.
+        \nEnter your first number: """))
         break
     except ValueError:
         print("That is not a valid number. Please try again.")
@@ -134,7 +142,8 @@ files = ['cats.txt','dogs.txt']
 for file in files:
     print_content(file)
 
-# Exercise 10.9: Modify your except block in Exercise 10-8 to fail silently if either file is missing.
+# Exercise 10.9: Modify your except block in Exercise 10-8 
+# to fail silently if either file is missing.
 
 def print_content(file):
     """Attempts to read a file and print out the contents of the file."""
@@ -149,13 +158,17 @@ files = ['cats.txt','dogs.txt']
 for file in files:
     print_content(file)
 
-# Exercise 10.10 Visit Project Gutenberg (gutenberg.org) and find some texts to analyze.
-# Download the text files or copy-paste the raw text to a .txt file on your computer.
-# Use the count() method to count how many times the word 'the' appears in each text.
+# Exercise 10.10 Visit Project Gutenberg (gutenberg.org) 
+# and find some texts to analyze.
+# Download the text files 
+# or copy-paste the raw text to a .txt file on your computer.
+# Use the count() method 
+# to count how many times the word 'the' appears in each text.
 # Try using 'the ' with a space after it, and see how your count changes.
 
 def word_count(file,word):
-    """Attempts to read a file and count the number of instances of a given word."""
+    """Attempts to read a file 
+    and count the number of instances of a given word."""
     try:
         with open(file, encoding='utf-8') as f:
             contents = f.read()
@@ -166,9 +179,10 @@ def word_count(file,word):
 
 files = ['hamlet.txt','julius_caesar.txt','romeo_and_juliet.txt']
 for file in files:
-    word_count(file,'the') # 'the' without a space includes words starting with 'the', like 'then'
-    word_count(file,'the ') # 'the ' with a space after it only counts the word 'the'
-
+    word_count(file,'the') 
+    word_count(file,'the ') 
+    # 'the' without a space includes words starting with 'the', like 'then'
+    # 'the ' with a space after it only counts the word 'the'
 
 # Exercise 10.11: Write a program that prompts for the user's favorite number.
 # Use json.dump() to store this number in a file.

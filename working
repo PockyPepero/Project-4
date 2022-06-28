@@ -1,1 +1,23 @@
-import this
+def make_album(artist, album, songnumber=None):
+    """Makes a dictionary with an artist and album name.
+	Also has an optional argument for the number of songs in the album.
+	The function returns the user's input as a dictionary."""
+    album_dict = {'artist_name': artist, 'album_name': album, 
+    'song_count':songnumber}
+    return album_dict
+
+while True:
+    """This loop prompts the user to enter the name of an artist and their album.
+	The loop allows the user to quit any time by entering 'q' when prompted.
+	The loop uses the make_album function to add the user's input to a dictionary.
+	""" 
+    print("\Enter the name of an artist.")
+    print("Enter 'q' at any time to quit.")
+    artist_name = input("What is the name of the artist? ")
+    if artist_name == 'q':
+        break
+    album_name = input("What is the name of their album? ")
+    if album_name == 'q':
+        break
+    aa_pair = make_album(artist_name, album_name)
+    print(aa_pair)

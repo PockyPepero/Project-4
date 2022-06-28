@@ -1,19 +1,26 @@
-# Exercise 8.1: Write the function display_message(). Use it to print out a sentence saying what you're learning in this chapter. Call the function.
+# Exercise 8.1: Write the function display_message(). 
+# Use it to print out a sentence saying what you're learning in this chapter. 
+# Call the function.
 
 def display_message():
     print("I am learning about functions in this chapter.")
     
 display_message()
 
-# Exercise 8.2: Write the function favorite_book() that accepts the parameter title and returns a print message saying that it is your favorite book. 
+# Exercise 8.2: Write the function favorite_book() 
+# that accepts the parameter title 
+# and returns a print message saying that it is your favorite book. 
 
 def favorite_book(title):
     print(f"{title.title()} is one of my favorite books.")
     
 favorite_book("The grapes of wrath")
 
-# Exercise 8.3: Write a function make_shirt() that accepts size and a message to be printed on it. 
-# Make the function print a sentence that contains the size and message. Call the function once using positional arguments, and another time using keyword arguments.
+# Exercise 8.3: Write a function make_shirt() 
+# that accepts size and a message to be printed on it. 
+# Make the function print a sentence that contains the size and message. 
+# Call the function once using positional arguments, 
+# and another time using keyword arguments.
 
 # Using positional arguments.
 def make_shirt(size, text):
@@ -26,8 +33,11 @@ def make_shirt2(size='L', text='hello world!'):
 make_shirt("L", "hello world!")
 make_shirt2()
 
-# Exercise 8.4 Modify the make_shirt() function from the previous exercise. Make L the default size and the default message be I Love Python. 
-# Make a large shirt with the default message. Make a medium shirt with the default message. Make a shirt of any size with a different message.
+# Exercise 8.4 Modify the make_shirt() function from the previous exercise. 
+# Make L the default size and the default message be I Love Python. 
+# Make a large shirt with the default message. 
+# Make a medium shirt with the default message. 
+# Make a shirt of any size with a different message.
 
 def make_shirt(size='L', text='I love Python'):
     print(f"Your shirt is in size {size}. The shirt will say: {text}")
@@ -36,8 +46,12 @@ make_shirt()
 make_shirt(size='M')
 make_shirt(size='M', text='I love Java')
 
-# Exercise 8.5 Write the function describe_city(). It should accept two parameters, the name of a city and the name of a country.
-# Make the function print a sentence describing the city and the country. The country parameter should have a default value. Call the function for three different cities. At least one of the city should not be in the default country.
+# Exercise 8.5 Write the function describe_city(). 
+# It should accept two parameters, the name of a city and the name of a country.
+# Make the function print a sentence describing the city and the country. 
+# The country parameter should have a default value. Call the function 
+# for three different cities. 
+# At least one of the city should not be in the default country.
 
 def describe_city(city, country='France'):
     print(f"{city.title()} is in {country}. ")
@@ -46,8 +60,11 @@ describe_city('Paris')
 describe_city('Lyon')
 describe_city('London', country='England')
 
-# Exercise 8.6: Write a function called city_country(). It should accept the name of a city and a country. 
-# It should return the string formatted like this: "City, Country." Call the function with three pairs of cities and their countries, and print the values returned by the function. 
+# Exercise 8.6: Write a function called city_country(). 
+# It should accept the name of a city and a country. 
+# It should return the string formatted like this: "City, Country." 
+# Call the function with three pairs of cities and their countries, 
+# and print the values returned by the function. 
 
 def city_country(city,country):
     full_name = f"{city}, {country}"
@@ -63,12 +80,17 @@ cc_pair = city_country("Madrid","Spain")
 print(cc_pair)
 
 
-# Exercise 8.7: Write a function called make_album(). It should accept the name of an artist and an album. 
-# It should return a dictionary with the artist and album title. Make three dictionaries, each with a different artist and album. 
-# Print the return values. Use an optional argument None to store the number of songs on an album. Make at least one function call that includes the number of songs on that album.
+# Exercise 8.7: Write a function called make_album(). 
+# It should accept the name of an artist and an album. 
+# It should return a dictionary with the artist and album title. 
+# Make three dictionaries, each with a different artist and album. 
+# Print the return values. 
+# Use an optional argument None to store the number of songs on an album. 
+# Make at least one function call that includes the # of songs on that album.
 
 def make_album(artist, album, songnumber=None):
-    album_dict = {'artist_name': artist, 'album_name': album, 'song_count':songnumber}
+    album_dict = {'artist_name': artist, 'album_name': album, 
+    'song_count':songnumber}
     return album_dict
 
 aa_pair = make_album('AC/DC','Back in Black')
@@ -84,10 +106,13 @@ aa_pair = make_album('Michael Jackson','Thriller',9)
 print(aa_pair)
 
 # Exercise 8.8: Take the function from 8.7. 
-# Write a while loop that lets the user enter an artist and their album. Call make_album() and print the dictionary. Include a quit value in the while loop.
+# Write a while loop that lets the user enter an artist and their album. 
+# Call make_album() and print the dictionary. 
+# Include a quit value in the while loop.
 
 def make_album(artist, album, songnumber=None):
-    album_dict = {'artist_name': artist, 'album_name': album, 'song_count':songnumber}
+    album_dict = {'artist_name': artist, 'album_name': album, 
+    'song_count':songnumber}
     return album_dict
 
 while True: 
@@ -102,7 +127,8 @@ while True:
     aa_pair = make_album(artist_name, album_name)
     print(aa_pair)
 
-# Exercise 8.9: Create a list with a series of short messages. Pass the list to a function called show_messages(). 
+# Exercise 8.9: Create a list with a series of short messages. 
+# Pass the list to a function called show_messages(). 
 # Have the function print each message. 
 
 def show_messages(messages):
@@ -113,7 +139,8 @@ message_list = ['hi','lol','wyd']
 show_messages(message_list)
 
 # Exercise 8.10: Modify the program from exercise 8.9. 
-# Have the send_messages() function print each message and move it to a list called sent_messages. 
+# Have the send_messages() function print each message 
+# and move it to a list called sent_messages. 
 # After calling the function, print both lists.  
 
 def show_messages(messages):
@@ -146,7 +173,12 @@ show_messages(message_list[:])
 print(sent_messages)
 print(message_list)
 
-# Exercise 8.12: Write a function that accepts a list of items a person wants on a sandwich. The function should have one parameter that accepts any number of items when the function is called. The function should print a summary of the sandwich and its ingredients. Call the function three times, using a different number of arguments each time. 
+# Exercise 8.12: 
+# Write a function that accepts a list of items a person wants on a sandwich. 
+# The function should have one parameter that accepts any number of items 
+# when the function is called. The function should print a summary of the 
+# sandwich and its ingredients. Call the function three times, 
+# using a different number of arguments each time. 
 
 def sandwiches(bread,*toppings):
     print(f"Your sandwich has {bread} bread with the following ingredients:\n{toppings}")
@@ -155,18 +187,26 @@ sandwiches('rye','ham','swiss')
 sandwiches('white','bacon','lettuce','tomatoes')
 sandwiches('sourdough','turkey','lettuce','tomatoes','mayonnaise')
 
-# Exercise 8.13: Take the code from user_profile.py (provided in the book on page 149.) Build a profile for yourself using your first and last name, as well as three other key-value pairs that describe you. 
+# Exercise 8.13: Take the code from user_profile.py 
+# (provided in the book on page 149.) 
+# Build a profile for yourself using your first and last name, 
+# as well as three other key-value pairs that describe you. 
 
 def build_profile(first,last,**user_info):
     user_info['first_name'] = first
     user_info['last_name'] = last
     return user_info
     
-user_profile = build_profile('will','vandom',age='13',location='heatherfield',power='heart')
+user_profile = build_profile('will','vandom',age='13',
+location='heatherfield',power='heart')
 
 print(user_profile)
 
-# Exercise 8.14: Write a function that stores information about a car in a dictionary. The function should accept a manufacturer and a model name. It should also accept an arbitrary number of keyword arguments. Call the function with two other name-value pairs. Print the dictionary. 
+# Exercise 8.14: 
+# Write a function that stores information about a car in a dictionary. 
+# The function should accept a manufacturer and a model name. 
+# It should also accept an arbitrary number of keyword arguments. 
+# Call the function with two other name-value pairs. Print the dictionary. 
 
 def cars(make,model,**kwargs):
     kwargs['make_name'] = make
@@ -176,8 +216,10 @@ def cars(make,model,**kwargs):
 car_info = cars('toyota','camry',color='white',engine='v6')
 print(car_info)
 
-# Exercise 8.15: Put the functions in printing_models.py (sourced from the book) in a separate file printing_functions.py. 
-# Write an import statement at the top of printing_models.py, and modify the file to use the import functions.
+# Exercise 8.15: Put the functions in printing_models.py 
+# (sourced from the book) in a separate file printing_functions.py. 
+# Write an import statement at the top of printing_models.py, 
+# and modify the file to use the import functions.
 
 import os
 
@@ -192,12 +234,16 @@ completed_models = []
 print_models(unprinted_designs,completed_models)
 show_completed_models(completed_models)
 
-# Exercise 8.16: Write a program that has one function in it. Store that function in a separate file. 
-# Import the function, store it in a separate file, and import the function into the main program.
+# Exercise 8.16: Write a program that has one function in it. 
+# Store that function in a separate file. 
+# Import the function, store it in a separate file, 
+# and import the function into the main program.
 # Call the function the following approaches.
 
-# Only use one at a time. The file that has my test function is called test_fun. I am running it from another file. 
-# My function is called test_fun and it prints out a statement saying the import worked.
+# Only use one at a time. The file that has my test function is called test_fun. 
+# I am running it from another file. 
+# My function is called test_fun 
+# and it prints out a statement saying the import worked.
 
 #import test_fun
 #from test_fun import print_test
@@ -214,15 +260,15 @@ print_test()
 # I will use the one I wrote for exercise 8.8
 
 def make_album(artist, album, songnumber=None):
-	"""Makes a dictionary with an artist and album name.
+    """Makes a dictionary with an artist and album name.
 	Also has an optional argument for the number of songs in the album.
-	The function returns the user's input as a dictionary.
-	"""
-    album_dict = {'artist_name': artist, 'album_name': album, 'song_count':songnumber}
+	The function returns the user's input as a dictionary."""
+    album_dict = {'artist_name': artist, 'album_name': album, 
+    'song_count':songnumber}
     return album_dict
 
 while True:
-	"""This loop prompts the user to enter the name of an artist and their album.
+    """This loop prompts the user to enter the name of an artist and their album.
 	The loop allows the user to quit any time by entering 'q' when prompted.
 	The loop uses the make_album function to add the user's input to a dictionary.
 	""" 

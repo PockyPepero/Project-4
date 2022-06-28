@@ -1,4 +1,5 @@
-# Exercise 1.1: Explore the python home page python.org and read some topics that interest you.
+# Exercise 1.1: Explore the python home page python.org 
+# and read some topics that interest you.
 
 # Exercise 1.2: Open the hello_world.py file.
 # Make a typo somewhere in the line and run the program again.
@@ -11,10 +12,13 @@
 
 print("Hello Python world!")
 
-# Generally, changing anything within the quotation marks in the string will not generate an error.
+# Changing anything within the quotation marks in the string 
+# will not generate an error.
 # That is because python simply prints the contents inside the quotation marks.
-# If you change the word "print" to say "pirnt," Python will not recognize this as a print statement.
-# That is because the print function is a built-in function and Python will only recognize it if written correctly.
+# If you change the word "print" to say "pirnt," 
+# Python will not recognize this as a print statement.
+# That is because the print function is a built-in function  
+# and Python will only recognize it if written correctly.
 
 # So this will not generate an error:
 
@@ -24,14 +28,16 @@ print("Hello Pyton world!")
 
 # pirnt("Hello Pyton world!")
 
-# Exercise 1.3: Assuming programming skills were not an issue, what would you build?
-# This is a creative exercise to get you to start thinking about projects you'd like to make. 
+# Exercise 1.3: Assuming programming skills were not an issue, 
+# what would you build?
+# This is a creative exercise to get you to start thinking about projects. 
 # Describe three programs you'd like to create.
 
 # I'd like to create:
 
 # 1) A program to help with my productivity. 
-# It would have a 'start studying' button and it would close/self-block any time-wasting apps like social media.
+# It would have a 'start studying' button and 
+# It would close/self-block any time-wasting apps like social media.
 # It would open my programming software and my last coding project. 
 # It would go into my files and play some calming background music. 
 

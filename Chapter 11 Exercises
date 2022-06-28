@@ -1,4 +1,5 @@
-# Exercise 11.1: Write a function that accepts two parameters (a city name and a country name).
+# Exercise 11.1: Write a function that accepts two parameters 
+# (a city name and a country name).
 # The function should return a string with the format City, Country.
 # Store this function in a module called city_functions.py.
 # Create a file called test_cities.py that tests the function.
@@ -28,12 +29,15 @@ if __name__ == '__main__':
     unittest.main()
 
 
-# Exercise 11.2: Modify the function from 11.1 so it requires a third parameter (population). 
-# The function should return the string in the format City, Country - population ___
+# Exercise 11.2: Modify the function from 11.1 
+# so it requires a third parameter (population). 
+# The function should return the string in the format 
+# City, Country - population ___
 # Run the test again. Make sure the test fails this time.
 # Then modify the function again and make sure the test function passes.
 # Write a second test called test_city_country_population()
-# and test the function with the values 'santiago', 'chile', and 'population=5000000'.
+# and test the function with the values 'santiago', 'chile', 
+# and 'population=5000000'.
 # Run test_cities.py again and make sure the new test passes.
 
 # Contents of city_functions.py:
@@ -51,7 +55,8 @@ class CityCountryTestCase(unittest.TestCase):
     """Tests for city_functions.py."""
 
     def test_city_country_population(self):
-        "Do city, country, population strings display properly, with capitalization?"
+        """Do city, country, population strings 
+        display properly, with capitalization?"""
         formatted_name = city_country('santiago','chile','5000000')
         self.assertEqual(formatted_name,'Santiago, Chile - Population: 5000000')
 
@@ -73,7 +78,8 @@ if __name__ == '__main__':
 
 class Employee:
     """Stores employee info: first name, last name, and salary.
-    Also contains a method for giving an employee a raise, with a default of 5k."""
+    Also contains a method for giving an employee a raise, 
+    with a default of 5k."""
     def __init__(self, first_name, last_name, salary):
         self.first_name = first_name
         self.last_name = last_name
@@ -81,7 +87,8 @@ class Employee:
     
     def give_raise(self,raise_amt=float(5000)):
         self.salary = raise_amt + self.salary
-        return f"{self.first_name} {self.last_name} now has a salary of: {self.salary}"
+        return f"""{self.first_name} {self.last_name} 
+        now has a salary of: {self.salary}"""
 
 
 # Contents of test_employee.py
@@ -97,10 +104,12 @@ class TestEmployeeRaise(unittest.TestCase):
         self.my_employee = Employee('John','Smith',50000)
 
     def test_give_default_raise(self):
-        self.assertEqual(self.my_employee.give_raise(),f"John Smith now has a salary of: {float(55000)}")
+        self.assertEqual(self.my_employee.give_raise(),
+        f"John Smith now has a salary of: {float(55000)}")
 
     def test_give_custom_raise(self):
-        self.assertEqual(self.my_employee.give_raise(10000),f"John Smith now has a salary of: {float(60000)}")
+        self.assertEqual(self.my_employee.give_raise(10000),
+        f"John Smith now has a salary of: {float(60000)}")
         
 if __name__ == '__main__':
     unittest.main()

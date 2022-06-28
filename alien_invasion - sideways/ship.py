@@ -10,11 +10,11 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship and get its rect.
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image = pygame.image.load('images/ship2.bmp')
         self.rect = self.image.get_rect()
 
-        # Start each new ship at the bottom center of the screen.
-        self.rect.midbottom = self.screen_rect.midbottom
+        # Start each new ship at the left center of the screen.
+        self.rect.midleft = self.screen_rect.midleft
 
         # Store a decimal value for the ship's horizontal position
         self.x = float(self.rect.x)
@@ -31,7 +31,9 @@ class Ship:
         """Update the ship's position based on the movement flag."""
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
-        if self.moving_left and self.rect.left > 0: # we use if rather than elif to allow L and R keys to have equal priority 
+        if self.moving_left and self.rect.left > 0: 
+            # we use if rather than elif 
+            # to allow L and R keys to have equal priority 
             self.x -= self.settings.ship_speed
         if self.moving_up and self.rect.top > self.screen_rect.top:
             self.y -= self.settings.ship_speed

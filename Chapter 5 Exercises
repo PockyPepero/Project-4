@@ -1,4 +1,6 @@
-# Exercise 5.1: Write 10 conditional tests. Print a statement that describes each test and predict the results. Have five tests evaluate to True and the other five tests evaluate to False. 
+# Exercise 5.1: Write 10 conditional tests. 
+# Print a statement that describes each test and predict the results. 
+# Have five tests evaluate to True and the other five tests evaluate to False. 
 
 fruit = 'apple'
 print("Is fruit == 'apple'? I predict true.")
@@ -46,7 +48,7 @@ print(f"Is my fruit NOT an apple? The answer is {fruit != 'apple'}.\n" )
 
 print("Using the lower method:\n")
 print("My fruit is an apple.")
-print(f"Is Apple the same as apple? If I use the lower method, the answer is {fruit == 'Apple'.lower()}." )
+print(f"Is Apple the same as apple? The answer is {fruit == 'Apple'.lower()}." )
 print(f"If I do not use the lower method, the answer is {fruit == 'Apple'}." )
 
 print("Using mathematical operations:\n")
@@ -78,7 +80,8 @@ if yourfruit not in fruit:
     print(f"{yourfruit.title()} is not in the list.")
 
 
-# Exercise 5-8: Create a list of usernames. Print out a special message for the admin. 
+# Exercise 5-8: Create a list of usernames. 
+# Print out a special message for the admin. 
 
 username_list = ['admin','barbara']
 
@@ -88,13 +91,15 @@ for username in username_list:
     else: 
             print(f"Hello {username}, thank you for logging in again.")
 
-# Exercise 5-9: Make a list of usernames. Check if the username list is empty. Print a message if the username list is empty. 
+# Exercise 5-9: Make a list of usernames. Check if the username list is empty. 
+# Print a message if the username list is empty. 
 
 if bool(username_list) == False:
     print("We need users")
     
 
-# Exercise 5-10: Check a new list of usernames against an existing list for uniqueness. Make sure to consider different cases of the same username. 
+# Exercise 5-10: Check a new list of usernames against an existing list 
+# for uniqueness. Make sure to consider different cases of the same username. 
 
 current_users = ['monica','erica','rita','tina','sandra']
 new_users = ['monica','erica','mary','jessica','olivia']
@@ -102,11 +107,13 @@ new_users = ['monica','erica','mary','jessica','olivia']
 for username in new_users:
     username_case = username.lower()
     if username_case in current_users:
-        print(f"You cannot user the username {username}. That username is taken. Please enter a new username.")
+        print(f"""You cannot user the username {username}. 
+        That username is taken. Please enter a new username.""")
     else:
         print(f"The username {username} is available.")
         
-# Exercise 5-11: Create a list with the numbers 1-9 and print out the corresponding ordinal numbers.
+# Exercise 5-11: Create a list with the numbers 1-9 
+# Print out the corresponding ordinal numbers.
 
 numbers = ['1','2','3','4','5','6','7','8','9']
 for number in numbers:

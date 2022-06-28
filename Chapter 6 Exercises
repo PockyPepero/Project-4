@@ -1,4 +1,5 @@
-# Exercise 6.1 Create a dictionary to store data about a person and print the values.
+# Exercise 6.1 Create a dictionary to store data about a person 
+# and print the values.
 dict = {
     'firstname':'Rarris',
     'lastname':'Gumami',
@@ -10,7 +11,8 @@ print(dict['lastname'])
 print(dict['age'])
 print(dict['city'])
 
-# Exercise 6.2 Create a dictionary to store five people's favorite numbers and print them.
+# Exercise 6.2 Create a dictionary to store five people's favorite numbers 
+# and print them.
 fav_num_dict = {
     'Angela':'1',
     'Pamela':'2',
@@ -22,13 +24,15 @@ fav_num_dict = {
 for key in fav_num_dict:
     print(f"{key}'s favorite number is {fav_num_dict[key]}")
 
-# Exercise 6.3 Create a dictionary of programming terminology and print the words and their deifnitions.
+# Exercise 6.3 Create a dictionary of programming terminology 
+# and print the words and their deifnitions.
 
 glossary = {
     'string':'a data type characterized by being a set of characters',
     'float':'a data type characterized by being a number with a decimal value',
     'int':'a numeric data type with no decimal value',
-    'comment':'a block of text not executed by the program. it allows the programmer to explain what the code does',
+    'comment':"""a block of text not executed by the program. 
+    it allows the programmer to explain what the code does""",
     'list':'a data type characterized by being a collection of items',
 }
 
@@ -36,7 +40,8 @@ glossary = {
     'string':'a data type characterized by being a set of characters',
     'float':'a data type characterized by being a number with a decimal value',
     'int':'a numeric data type with no decimal value',
-    'comment':'a block of text not executed by the program. it allows the programmer to explain what the code does',
+    'comment':"""a block of text not executed by the program. 
+    it allows the programmer to explain what the code does""",
     'list':'a data type characterized by being a collection of items',
 }
 
@@ -47,13 +52,15 @@ print(f"The definition of comment:\n is {glossary['comment']}")
 print(f"The definition of list:\n is {glossary['list']}")
 
 	
-# Exercise 6.4 Re-write exercise 6-3 by changing the print statements to a loop. Add 5 new python terms and their definitions. 
+# Exercise 6.4 Re-write exercise 6-3 by changing the print statements to a loop. 
+# Add 5 new python terms and their definitions. 
 	
 glossary2 = {
     'string':'a data type characterized by being a set of characters',
     'float':'a data type characterized by being a number with a decimal value',
     'int':'a numeric data type with no decimal value',
-    'comment':'a block of text not executed by the program. it allows the programmer to explain what the code does',
+    'comment':"""a block of text not executed by the program. 
+    it allows the programmer to explain what the code does""",
     'list':'a data type characterized by being a collection of items',
 	'tuple':'an immutable set of values',
 	'conditional test':'a statement that evaluates to True or False',
@@ -65,8 +72,11 @@ glossary2 = {
 for key in glossary2:
     print(f"The definition of {key}:\n {glossary2[key]}.")
 
-# Exercise 6.5 Make a dictionary with three rivers and the country through which they flow. Use a loop to print a sentence about each river. 
-# Use a loop to print out the names of all the rivers in the dictionary. Use a loop to print out all the countries in the dictionary.
+# Exercise 6.5 Make a dictionary with three rivers 
+# and the country through which they flow. 
+# Use a loop to print a sentence about each river. 
+# Use a loop to print out the names of all the rivers in the dictionary. 
+# Use a loop to print out all the countries in the dictionary.
 
 river_glossary = {
     'Nile':'Egypt',
@@ -85,8 +95,10 @@ print("The countries included in this dictionary are:")
 for river, country in river_glossary.items():
     print(country)
 	
-# Exercise 6.6 Make a list of people to take the favorite languages poll. Include some people who have already been polled and some who have not. 
-# Thank the people who have taken the poll. If someone has not taken the poll, ask them to.
+# Exercise 6.6 Make a list of people to take the favorite languages poll. 
+# Include some people who have already been polled and some who have not. 
+# Thank the people who have taken the poll. 
+# If someone has not taken the poll, ask them to.
 
 favorite_languages = {
     'jen':'python',
@@ -104,7 +116,9 @@ for person in people:
         print(f"{person.title()}, please take the favorite language poll!")
 		
 		
-# Exercise 6.7 Take the code you wrote in exercise 6.1. Add two new dictionaries for two new people's info. Store all the dictionaries in a list. 
+# Exercise 6.7 Take the code you wrote in exercise 6.1. 
+# Add two new dictionaries for two new people's info. 
+# Store all the dictionaries in a list. 
 # Loop through the list and print the info about each person.
 
 dict = {
@@ -131,10 +145,14 @@ ernie_dict = {
 people = [dict, bert_dict, ernie_dict]
 
 for person in people:
-    print(f"{person['firstname']}'s last name is {person['lastname']}. They are {person['age']} years old. They live in {person['city']}.")
+    print(f"""{person['firstname']}'s last name is {person['lastname']}. 
+    They are {person['age']} years old. They live in {person['city']}.""")
 	
 	
-# Exercise 6.8 Create dictionaries to represent different pets. In each dictionary, add the animal species and name. Store the dictionaries in a list. Loop through the list and print the info about each pet.
+# Exercise 6.8 Create dictionaries to represent different pets. 
+# In each dictionary, add the animal species and name. 
+# Store the dictionaries in a list. 
+# Loop through the list and print the info about each pet.
 
 pet1 = {
     'petname':'Angela',
@@ -157,9 +175,12 @@ pet3 = {
 pets = [pet1, pet2, pet3]
 
 for pet in pets:
-    print(f"{pet['petname']} is a {pet['species']}. They are owned by {pet['owner']}.")
+    print(f"""{pet['petname']} is a {pet['species']}. 
+    They are owned by {pet['owner']}.""")
 	
-# Exercise 6.9. Make a dictionary with people's names and their favorite places. Let the keys be the peoples' names. Store 1-3 favorite places for each person. Loop through the dictionaries and print the names and places.
+# Exercise 6.9. Make a dictionary with people's names and their favorite places. 
+# Let the keys be the peoples' names. Store 1-3 favorite places for each person. 
+# Loop through the dictionaries and print the names and places.
 
 person1 = {
     'name':'angela',
@@ -183,7 +204,8 @@ for person in people:
     for place in person['favorite_places']:
         print(place.title())
 		
-# Exercise 6.10. Take the code from 6.2 and change it so that people can have multiple favorite numbers.
+# Exercise 6.10. Take the code from 6.2 
+# and change it so that people can have multiple favorite numbers.
 
 fav_num_dict = {
     'Angela':['1','2'],
@@ -198,7 +220,10 @@ for person, numbers in fav_num_dict.items():
     for number in numbers:
         print(number)
 		
-# Exercise 6.11: Make a dictionary called cities, with three cities as the keys. For each city, make a dictionary and include the following information about each city: its country, its population, and one fact about the city. Print the name of each city and its information. 
+# Exercise 6.11: Make a dictionary called cities, with three cities as the keys. 
+# For each city, make a dictionary and include the following information
+# about each city: its country, its population, and one fact about the city. 
+# Print the name of each city and its information. 
 
 cities = {
     'Paris':{
@@ -209,7 +234,8 @@ cities = {
     'London':{
         'country':'England',
         'population':'8.982 million',
-        'fact':'Due to its tree density, London qualifies as a forest according to the UN.',
+        'fact':"""Due to its tree density, 
+        London qualifies as a forest according to the UN.""",
         },
     'Barcelona':{
         'country':'Spain',
@@ -226,11 +252,17 @@ for cityname, facts in cities.items():
 	
 
 
-# Exercise 6.12 Take one of the programs from the chapter, add new keys and values, change the context of the program, or improve the formatting of the output.
-# Sample: I took the code that stores and prints people's favorite programming languages (favorite_languages.py).
-# I added lists of programming, scripting, and markup languages. I checked each person's list and counted how many programming, scripting, and markup languages they likes. 
+# Exercise 6.12 Take one of the programs from the chapter, 
+# add new keys and values, change the context of the program, 
+# or improve the formatting of the output.
+# Sample: I took the code that stores and prints people's 
+# favorite programming languages (favorite_languages.py).
+# I added lists of programming, scripting, and markup languages. 
+# I checked each person's list and counted how many programming, scripting, 
+# and markup languages they likes. 
 # I printed out how many of each type each person likes.  
-# I printed out which programming, scripting, and markup languages each person likes, in a separate list for each type.
+# I printed out which programming, scripting, and markup languages 
+# each person likes, in a separate list for each type.
         
 favorite_languages = {
     'angela':['C','javascript'],
@@ -263,19 +295,24 @@ for key,value in favorite_languages.items():
         if language in markup_languages:
             markup_count = markup_count + 1
             markup_list.append(language)
-    print(f"{key.title()} likes {program_count} programming languages, {scripting_count} scripting languages, and {markup_count} markup languages." )
+    print(f"""{key.title()} likes {program_count} programming languages, 
+    {scripting_count} scripting languages, 
+    and {markup_count} markup languages.""" )
     
     if program_list:
-        print(f"{key.title()} likes the following programming languages: {program_list}")
+        print(f"""{key.title()} likes the following programming languages:
+         {program_list}""")
     else:
         print("This person does not like any programming languages.")
         
     if scripting_list:
-        print(f"{key.title()} likes the following scripting languages: {scripting_list}")
+        print(f"""{key.title()} likes the following scripting languages:
+         {scripting_list}""")
     else:
         print("This person does not like any scripting languages.")  
         
     if markup_list:
-        print(f"{key.title()} likes the following markup languages: {markup_list}")
+        print(f"""{key.title()} likes the following markup languages: 
+        {markup_list}""")
     else:
         print("This person does not like any markup languages.")

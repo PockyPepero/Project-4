@@ -1,0 +1,256 @@
+# Exercise 3.1: Store the names of some friends in a list called names.
+# Print each person's name by accessing each element in the list, one at a time.
+
+names = ['Marinette','Adrien','Nino']
+print(names[0])
+print(names[1])
+print(names[2])
+
+# Exercise 3.2: Start with the list from Exercise 3.1. 
+# Instead of simply printing the names, print a message.
+# Each message should be the same, except with each person's name in it.
+
+names = ['Marinette','Adrien','Nino']
+
+print(f"Hello {names[0]}!")
+print(f"Hello {names[1]}!")
+print(f"Hello {names[2]}!")
+
+# Exercise 3.3: Choose a method of transportation.
+# Make a list that stores some examples of this type of transportation.
+# Use the list to print a series of statements about these items.
+
+motorcycles = ['Harley-Davidson','Ducati','Triumph']
+print(f"I would like to own a {motorcycles[0]} motorcycle someday.")
+print(f"I would like to own a {motorcycles[1]} motorcycle someday.")
+print(f"I would like to own a {motorcycles[2]} motorcycle someday.")
+
+# Exercise 3.4: Make a list that includes 3 people to invite to dinner.
+# They can be alive or deceased.
+# Use the list to print a message to each person, inviting them for dinner.
+
+guest_list = ['Shakespeare','Lincoln','Newton']
+
+print(f"Hello {guest_list[0]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[1]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[2]}, would you like to come over for dinner?")
+
+# Exercise 3.5: Start with the code from Exercise 3.4: S
+# Somebody from the list is unable to attend.
+# Print a message saying which person can't attend the dinner.
+# Print a second set of invitations for the people who are still coming.
+
+guest_list = ['Shakespeare','Lincoln','Newton']
+
+removed_guest = guest_list.pop(0)
+print(f"Sorry, {removed_guest} can't make it tonight!")
+
+print(f"Hello {guest_list[0]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[1]}, would you like to come over for dinner?")
+
+# Exercise 3.6: Start with the program from Exercise 3.4 or 3.5.
+# Think about three more people you'd like to invite to dinner.
+# Print a message to your guests, saying you've found a bigger table, 
+# and you'd like to invite more people.
+# Use insert() to add one new guest to the beginning of the list.
+# Use insert() to add one new guest to the middle of the list.
+# Use append() to add one new guest to the end of the list.
+# Print a new set of invitation messages, one for each person on the whole list.
+
+guest_list = ['Shakespeare','Lincoln','Newton']
+
+removed_guest = guest_list.pop(0)
+print(f"Sorry, {removed_guest} can't make it tonight!")
+
+print("We've found a bigger table! Let's invite more people.")
+guest_list.insert(0, 'Muhammad')
+guest_list.insert(3, 'Buddha')
+guest_list.append('Jesus')
+
+print(f"Hello {guest_list[0]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[1]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[2]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[3]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[4]}, would you like to come over for dinner?")
+
+# Exercise 3.7: Start with the program from Exercise 3.6. 
+# The new dinner table won't arrive in time.
+# You only have room for 2 guests.
+# Print a message saying you can only invite two people for dinner.
+# Use pop() to remove guests from your list one at a time 
+# until only two names are left.
+# Print a message to each of the people still on the list, 
+# saying they're still invited.
+# Use del to remove the last two names from the list, so you have an empty list.
+# Print the list at the very end to make sure the list is empty.
+
+guest_list = ['Shakespeare','Lincoln','Newton']
+
+removed_guest = guest_list.pop(0)
+print(f"Sorry, {removed_guest} can't make it tonight!")
+
+print("We've found a bigger table! Let's invite more people.")
+guest_list.insert(0, 'Muhammad')
+guest_list.insert(3, 'Buddha')
+guest_list.append('Jesus')
+
+print(f"Hello {guest_list[0]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[1]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[2]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[3]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[4]}, would you like to come over for dinner?")
+
+print("Sorry, my table won't arrive in time. I can only invite two guests max.")
+removed_guest2 = guest_list.pop()
+print(f"Sorry, {removed_guest2}, maybe next time!")
+removed_guest3 = guest_list.pop()
+print(f"Sorry, {removed_guest3}, maybe next time!")
+removed_guest4 = guest_list.pop()
+print(f"Sorry, {removed_guest4}, maybe next time!")
+
+print(f"Hey {guest_list[0]}, you're still invited!")
+print(f"Hey {guest_list[1]}, you're still invited!")
+
+del guest_list[0]
+del guest_list[0]
+
+print(guest_list)
+
+# Exercise 3.8: Think of at least five places in the world you'd like to visit.
+# Store the locations in a list. Make sure the list is NOT in alphabetized.
+# Print the list in its original order.
+# Use sorted() to print your list in alphabetical order w/o modifying the list.
+# Show that your original list is still in the original order by printing it.
+# Use reverse() to change the order of your list.
+# Print the list to show that its order has changed.
+# Use reverse() to change the order again. 
+# Print the list to show that it's back to the original order.
+# Use sort() to change your list so that it's in alphabetical order. 
+# Print the list to show its order has been changed.
+# Use sort() to change your list so it's in reverse alphabetical order.
+# Print the list to show the order has changed.
+
+travel_list = ['Paris','London','San Francisco','Shanghai','Harajuku']
+print(f"This is the original list: {travel_list}")
+print(f"This is the list after applying sorted(): {sorted(travel_list)}")
+print(f"This is the original list again {travel_list}")
+print("It has been unchanged by sorted().")
+travel_list.reverse() 
+# You must make reverse() a separate statement. 
+# If you try to print travel_list.reverse() at the same time it is used, 
+# it will return None and thus print None.
+# The same logic applies for the sort() method.
+
+print(f"This is the list after applying reverse(): {travel_list}")
+travel_list.reverse()
+print(f"This is the list after applying reverse() again: {travel_list}")
+travel_list.sort()
+print(f"This is the list after applying sort(): {travel_list}")
+travel_list.sort(reverse=True)
+print(f"This is the list after applying sort(reverse=True): {travel_list}")
+
+# Exercise 3.9: Start with any program from Exercises 3.4 to 3.7.
+# Use len() to print a message indicating the # of people invited for dinner.
+
+guest_list = ['Shakespeare','Lincoln','Newton']
+
+print(f"Hello {guest_list[0]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[1]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[2]}, would you like to come over for dinner?")
+
+print(f"There are {len(guest_list)} people coming to dinner tonight.")
+
+# Exercise 3.10: Think of a category of items 
+# and make a list including items in that category.
+# Use each function introduced in this chapter at least once.
+
+foreign_languages = ['Mandarin','Hindi','Spanish','Arabic','French']
+
+print("Here is a list of languages I'd like to learn!")
+print(foreign_languages)
+
+print("\nI want to add Japanese to my list.")
+foreign_languages.append('Japanese')
+print(foreign_languages)
+
+print("\nI want to add Italian to the beginning of my list.")
+foreign_languages.insert(0,'Italian')
+print(foreign_languages)
+
+print("\nI want to remove the third item from my list.")
+del(foreign_languages[2])
+print(foreign_languages)
+
+print("\nI want to remove the last language from my list using pop().")
+removed_language = foreign_languages.pop()
+print(f"I don't have time to learn {removed_language} right now.")
+print(foreign_languages)
+
+print("\nI want to remove Spanish from my list.")
+foreign_languages.remove('Spanish')
+print(foreign_languages)
+
+print("\nI want to sort my list in alphabetical order temporarily.")
+print(sorted(foreign_languages))
+
+print("\nI want to sort my list in alphabetical order permanently.")
+foreign_languages.sort()
+print(foreign_languages)
+
+print("\nI want to count how many languages are in my list.")
+print(f"There are {len(foreign_languages)} languages in my list.")
+
+print("\nI'd like to reverse the order of my list permanently.")
+foreign_languages.sort(reverse=True)
+print(foreign_languages)
+
+print("\nI'd like to reverse the order of my list permanently again.")
+foreign_languages.reverse()
+print(foreign_languages)
+
+# Exercise 3.11: Change an index in one of the programs from this chapter
+# to produce an index error.
+# Correct the error before closing the program.
+
+# I'm going to use the program from 3.7.
+
+guest_list = ['Shakespeare','Lincoln','Newton']
+
+removed_guest = guest_list.pop(0)
+print(f"Sorry, {removed_guest} can't make it tonight!")
+
+print("We've found a bigger table! Let's invite more people.")
+guest_list.insert(0, 'Muhammad')
+guest_list.insert(3, 'Buddha')
+guest_list.append('Jesus')
+
+print(f"Hello {guest_list[0]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[1]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[2]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[3]}, would you like to come over for dinner?")
+print(f"Hello {guest_list[4]}, would you like to come over for dinner?")
+
+print("Sorry, my table won't arrive in time. I can only invite two guests max.")
+removed_guest2 = guest_list.pop()
+print(f"Sorry, {removed_guest2}, maybe next time!")
+removed_guest3 = guest_list.pop()
+print(f"Sorry, {removed_guest3}, maybe next time!")
+removed_guest4 = guest_list.pop()
+print(f"Sorry, {removed_guest4}, maybe next time!")
+
+print(f"Hey {guest_list[0]}, you're still invited!")
+print(f"Hey {guest_list[1]}, you're still invited!")
+
+del guest_list[0] # I will focus on these two lines
+del guest_list[0] # for this exercise.
+
+print(guest_list)
+
+# Right before the del guest_list lines, there are 2 guests left.
+# If you use del guest_list[0] to remove the first guest, it works.
+# However, after this, there is only one guest left.
+# If you forget that, 
+# and try to use del guest_list[1], you will get an index error. 
+# This is because is is trying to access the second item in the list, 
+# but it doesn't exist.
+# Instead, repeat del guest_list[0] to remove the last item in the list.

@@ -19,7 +19,8 @@ class AlienInvasion():
         pygame.init()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen = pygame.display.set_mode((
+            self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
     def run_game(self):
@@ -60,7 +61,8 @@ class Settings:
 
 # Exercise 12.2: Find a .bmp image of a character you like. 
 # Make a class that draws the character at the center of the screen.
-# Make sure the background color of the character matches the background color of the screen.
+# Make sure the background color of the character 
+# matches the background color of the screen.
 
 # I made two new files: newgame.py to store and manage the primary game assets
 # playchar.py to store and manage the playable character assets.
@@ -80,7 +82,8 @@ class NewGame():
         pygame.init()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen = pygame.display.set_mode
+        ((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("New Game")
 
         self.ship = PlayChar(self)
@@ -135,8 +138,10 @@ class PlayChar:
 
 # Exercise 12.3: Look at the Pygame documentation on pygame.org/docs/
 
-# Exercise 12.4: Make a game that begins with a rocket in the center of the screen.
-# Allow the player to move the rocket up, down, left, or right using the four arrow keys.
+# Exercise 12.4: 
+# Make a game that begins with a rocket in the center of the screen.
+# Allow the player to move the rocket up, down, left, or right 
+# using the four arrow keys.
 # Make sure the rocket cannot move past the boundaries of the screen.
 
 # Contents of alien_invasion_v2.py
@@ -155,11 +160,13 @@ class AlienInvasion():
         self.settings = Settings()
 
         # fullscreen mode. remove comments to enable fullscreen mode.
-        #self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN) # tells pygame to find the window size to fill the screen
-        #self.settings.screen_width = self.screen.get_rect().width
-        #self.settings.screen_height = self.screen.get_rect().height
+        # self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN) 
+        # tells pygame to find the window size to fill the screen
+        # self.settings.screen_width = self.screen.get_rect().width
+        # self.settings.screen_height = self.screen.get_rect().height
 
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen = pygame.display.set_mode(
+            (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
@@ -253,7 +260,9 @@ class Ship:
         """Update the ship's position based on the movement flag."""
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
-        if self.moving_left and self.rect.left > 0: # we use if rather than elif to allow L and R keys to have equal priority 
+        if self.moving_left and self.rect.left > 0: 
+            # we use if rather than elif 
+            # to allow L and R keys to have equal priority 
             self.x -= self.settings.ship_speed
         if self.moving_up and self.rect.top > self.screen_rect.top:
             self.y -= self.settings.ship_speed
@@ -267,3 +276,82 @@ class Ship:
     def blitme(self):
         """Draw the ship at its current location."""
         self.screen.blit(self.image, self.rect)
+
+# Exercise 12.5: Make a pygame file that creates an empty screen.
+# In the event loop, print the event.key attribute 
+# whenever a pygame.KEYDOWN event is detected.
+# Run the program and press various keys to see how Pygame responds.
+
+# Contents of newgame.py
+# Keep settings.py the same. 
+# Module ship.py is not used here
+
+import sys
+import pygame
+from settings import Settings
+
+class NewGame():
+    """Overall class to manage game assets and behavior."""
+
+    def __init__(self):
+        """Initialize the game, and create game resources."""
+        pygame.init()
+        self.settings = Settings()
+
+        self.screen = pygame.display.set_mode((
+            self.settings.screen_width, self.settings.screen_height))
+        pygame.display.set_caption("New Game")
+
+    def run_game(self):
+        """Start the main loop for the game."""
+        while True:
+            self._check_events()
+            self._update_screen()
+
+    def _check_events(self):
+        """Respond to keypresses and mouse events."""
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                print(event.key)
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+    def _update_screen(self):
+        """Update images on the screen, and flip to the new screen."""
+        self.screen.fill(self.settings.bg_color)
+
+        pygame.display.flip()
+
+if __name__ == '__main__':
+    # Make a game instance, and run the game.
+    ai = AlienInvasion()
+    ai.run_game()
+
+# Exercise 12.6: Write a game that places the ship on the left side 
+# of the screen, and allows the player to move the ship up and down.
+# Make the ship fire a bullet that travels right across the screen
+# when the player presses the space-bar.
+# Make sure the bullets are deleted once they disappear off the screen.
+
+# I mostly re-used the code from the exercises,
+# with a few changes to change the orientation of the game.
+
+# I made a sideways version of the original ship
+# and set it as ship2.bmp.
+
+# in alien.invasion.py, I changed the _update_bullets method         
+def _update_bullets(self):
+    for bullet in self.bullets.copy():
+            if bullet.rect.right >= self.settings.screen_width:
+                self.bullets.remove(bullet)
+
+# this will remove bullets when the right.rect coordinate exceeds the
+# width of the screen.
+
+# in settings.py, I switched the height and width of the bullet.
+# The bullet looks like it fires from the left side of the screen.
+
+# in bullet.py, I made the bullet start at the midright of the ship.
+self.rect = pygame.Rect(0,0, self.settings.bullet_width,
+    self.settings.bullet_height)
+self.rect.midright = ai_game.ship.rect.midright

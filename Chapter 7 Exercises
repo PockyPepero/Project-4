@@ -4,7 +4,10 @@
 car = input("What kind of car do you like?: ")
 print(f"I'll try to find a {car} for you.")
 
-# Exercise 7.2: Ask the user how many people are in their dinner group. If 8 or fewer, print a message saying their table is ready. If greater than 8, print a message saying they'll have to wait for their table.
+# Exercise 7.2: Ask the user how many people are in their dinner group. 
+# If 8 or fewer, print a message saying their table is ready. 
+# If greater than 8, print a message saying 
+# they'll have to wait for their table.
 
 partycount = input("How many people are in your dinner group? ")
 partycount = int(partycount)
@@ -14,7 +17,8 @@ if partycount > 8:
 else: 
     print("Your table is ready.")
 	
-# Exercise 7.3: Ask the user for a number. Print a message saying whether the number is a multiple of 10 or not. 
+# Exercise 7.3: Ask the user for a number. 
+# Print a message saying whether the number is a multiple of 10 or not. 
 
 number= input("Enter a number. ")
 number = int(number)
@@ -24,7 +28,8 @@ if number % 10 == 0:
 else: 
     print(f"{number} is not a multiple of 10.")
 	
-# Exercise 7.4: Ask the user to enter a pizza topping. Print a message saying that the topping has been added to their pizza.
+# Exercise 7.4: Ask the user to enter a pizza topping. 
+# Print a message saying that the topping has been added to their pizza.
 # Keep looping and asking the user for toppings until they enter quit.	
 	
 prompt = ("Enter a pizza topping. ")
@@ -38,7 +43,9 @@ while active:
     else:
         print(f"I've added {topping} to your pizza.")
 
-# Exercise 7.5: Ask for the user's age. Print out the cost of their movie ticket. Under the age of 3 = free; between ages 3-12: $10, above age 12: $15.
+# Exercise 7.5: Ask for the user's age. 
+# Print out the cost of their movie ticket. 
+# Under the age of 3 = free; between ages 3-12: $10, above age 12: $15.
 
 prompt = "How old are you? "
 prompt += "\nEnter quit to quit the program. "
@@ -54,10 +61,12 @@ while True:
         print("Your ticket is $15")
     break
 	
-# Exercise 7.6: Write new versions of the program from either 7.4 or 7.5. Do each of the following at least once: 
+# Exercise 7.6: Write new versions of the program from either 7.4 or 7.5. 
+# Do each of the following at least once: 
 # 1. Use a conditional test in the while loop to stop the loop. 
 # 2. Use an active variable to control how long the loop runs.
-# 3. Use a break statement to exit the loop when the user enters a quit variable.
+# 3. Use a break statement to exit the loop 
+# when the user enters a quit variable.
 
 # Version 1: Conditional test in a while loop to stop the loop.
 
@@ -86,13 +95,19 @@ while active:
         print(f"I've added {topping} to your pizza.")
         topping = input(prompt)
 		
-# Exercise 7.7: Write a loop that never ends. To end the loop, Ctrl-C or exit the output window.
+# Exercise 7.7: Write a loop that never ends. 
+# To end the loop, Ctrl-C or exit the output window.
 		
 while True:
     print("hello")
 	
-# Exercise 7.8: Make a list called sandwich_orders and fill it with sandwich names. Make an empty list called finished_sandwiches. Loop through the list of sandwich orders
-# and print a message for each sandwich that gets made. When a sandwich is made, move the name to the finished_sandwiches list. Print a final list of the finished sandwiches.
+# Exercise 7.8: Make a list called sandwich_orders 
+# and fill it with sandwich names. 
+# Make an empty list called finished_sandwiches. 
+# Loop through the list of sandwich orders
+# and print a message for each sandwich that gets made. 
+# When a sandwich is made, move the name to the finished_sandwiches list. 
+# Print a final list of the finished sandwiches.
 
 sandwich_orders = ['grilled cheese', 'BLT','turkey club']
 finished_sandwiches = []
@@ -104,12 +119,16 @@ while sandwich_orders:
    
 print(f"Here is a list of the finished sandwiches: {finished_sandwiches}. ")
 
-# Exercise 7.9: Modify the code from 7.8. Add the word pastrami at least three times to the list. Loop through the list, removing all instances of pastrami. 
-# Then have the code run as before. Print a message at the beginning saying the deli has run out of pastrami.
+# Exercise 7.9: Modify the code from 7.8. 
+# Add the word pastrami at least three times to the list. 
+# Loop through the list, removing all instances of pastrami. 
+# Then have the code run as before. 
+# Print a message at the beginning saying the deli has run out of pastrami.
 
 print("The deli has run out of pastrami.")
 
-sandwich_orders = ['grilled cheese','pastrami', 'pastrami', 'BLT','turkey club','pastrami']
+sandwich_orders = ['grilled cheese','pastrami', 
+'pastrami', 'BLT','turkey club','pastrami']
 finished_sandwiches = []
 
 while 'pastrami' in sandwich_orders:
@@ -121,7 +140,9 @@ while sandwich_orders:
    
 print(f"Here is a list of the finished sandwiches: {finished_sandwiches}. ")
 
-# Exercise 7.10: Write a program to ask users about their dream vacation. Store user's names and dream vacation in a dictionary. Print the results of the poll. 
+# Exercise 7.10: Write a program to ask users about their dream vacation. 
+# Store user's names and dream vacation in a dictionary. 
+# Print the results of the poll. 
 
 responses = {}
 
@@ -134,7 +155,8 @@ while polling_flag == True:
     
     responses[name] = dream
     
-    repeat_check = input("Is there anyone else who needs to be polled? Enter Yes or No. ").lower()
+    repeat_check = input("""Is there anyone else who needs to be polled? 
+    Enter Yes or No. """).lower()
     
     continue_flag = True
     
@@ -146,7 +168,8 @@ while polling_flag == True:
             polling_flag = False
         else:
             print("Please enter yes or no.")
-            repeat_check = input("is there anyone else who needs to be polled? Enter Yes or No. ").lower()
+            repeat_check = input("""is there anyone else who needs to be polled? 
+            Enter Yes or No. """).lower()
             
 for name, dream in responses.items():
     print(f"{name.title()}'s dream vacation is: {dream}")

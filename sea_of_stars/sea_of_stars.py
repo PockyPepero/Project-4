@@ -62,9 +62,10 @@ class SeaofStars():
         """Create a and place it in the row."""
         star = Star(self)
         star_width, star_height = star.rect.size
-        star.x = star_width + 2 * star_width * star_number
-        star.rect.x = star.x
-        star.rect.y = star_height + 2 * star.rect.height * row_number
+        star.x = star_width + 2 * star_width * star_number + randint(-10,10)
+        star.rect.x = star.x 
+        star.rect.y = star_height + (2 * star.rect.height * row_number) \
+            + randint(-20,20)
         self.stars.add(star)
 
 

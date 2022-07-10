@@ -16,7 +16,7 @@ class Alien(Sprite):
 
         # Start each new alien at the top right corner of the screen.
         self.rect.x  = self.settings.screen_width
-        self.rect.y = self.settings.screen_height
+        self.rect.y = 0
 
         # Store the alien's exact horizontal position.
         self.x = float(self.rect.x)

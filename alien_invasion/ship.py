@@ -28,7 +28,6 @@ class Ship:
 
     def update(self):
         """Update the ship's position based on the movement flag."""
-        """Update the ship's position based on the movement flag."""
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0: # we use if rather than elif to allow L and R keys to have equal priority 
@@ -50,3 +49,4 @@ class Ship:
         """Center the ship of the screen."""
         self.rect.midbottom = self.screen_rect.midbottom 
         self.x = float(self.rect.x)
+        self.y = float(self.rect.y)

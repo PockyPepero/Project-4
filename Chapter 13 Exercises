@@ -637,6 +637,16 @@ class Settings:
         # fleet_direction of 1 represents down, -1 is up
         self.fleet_direction = 1
 
+# Exercise 13.6: In Sideways Shooter, keep track of the number of the times
+# the ship is hit and the number of times and alien is hit by the ship.
+# Decide on an appropriate condition for ending the game, and stop the game
+# when this situation occurs.
+
+# Basically, I brought the sideways version of Alien Invasion up to speed
+# with the main version. In the sideways version, when the aliens reach
+# the left edge, the game should stop. Additionally, have the ship re-center 
+# at the left center rather than the bottom center.
+
 
 
 

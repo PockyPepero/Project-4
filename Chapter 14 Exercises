@@ -1,0 +1,50 @@
+# Exercise 14.1: In Alien Invasion, add code that allows the player 
+# to press P to start the game.
+
+# Two simple changes. In _check_keydown_events() I added an elif statement
+# that allows the game to recognize when the P key is pressed.
+
+# I added a _start_game() method that sets self.stats.game_active to True.
+
+def _start_game(self):
+    """Start a new game when the player presses P."""
+    self.stats.reset_stats()
+    self.stats.game_active = True
+
+# Exercise 14.2: Create a rectangle at the right edge of the screen
+# that moves up and down at a steady rate.
+# Then have a ship appear on the left side of the screen.
+# The ship should be able to move up and down and fire bullets at the target.
+# Add a play button that starts the game.
+# When the player misses the target 3 times, end the game
+# and make the play button reappear.
+# Let the player restart the game with this play button.
+
+# See Target Practice folder in the main github directory to see the full code.
+# I adapted the code from Sidways Shooter. Instead of having a full fleet
+# of aliens, I simply made one rectangle in target.py and applied
+# the code that created the aliens and allowed the fleet to move.
+# I removed any horizontal movemenet aspects since the target only needs
+# to move up and down.
+# I added a miss_count in gamestats. Whenever any bullet reaches the edge,
+# incremented the miss_count by 1. When the miss_count reaches 3,
+# the game becomes inactive and the play button re-appears.
+
+# Exercise 14.3: Start with the code from Exercise 14.2. 
+# Make the target move faster as the game progresses and restart the target 
+# at the original speed.
+
+# See Target Practice folder in the main github directory to see the full code.
+# Simply apply the code from the book to target practice.
+
+# Exercise 14.4: Make a set of buttons for Alien Invasion that allows the player
+# to set a difficulty level for the game.
+# Each button should assign values for attributes in Settings to create the
+# different levels.
+
+# See the alien_invasion - levels folder.
+# I made mine simple by creating three buttons that each initialize
+# a different settings condition in settings.py.
+
+# You could also change the speed multiplier so each level has a different
+# multiplier, and the harder levels increase speed at a higher rate.

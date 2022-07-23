@@ -48,3 +48,71 @@ def _start_game(self):
 
 # You could also change the speed multiplier so each level has a different
 # multiplier, and the harder levels increase speed at a higher rate.
+
+# Exercise 14.5: Currently, the high score is reset every time a player 
+# closes and restarts Alien Invasion. Fix this by writing the high score
+# to a file before calling sys.exit(). Read the high score when initializing 
+# its value in GameStats.
+
+# Review Chapter 10, Files and Exceptions, to read/write from files.
+# Be careful with data types.
+
+# First, I created .txt file called all_time_hs.txt. 
+# Write the number 0, and nothing else, in it. This is the initial all time HS.
+
+# In game_stats.py, in the init method, I added:
+
+with open('all_time_hs.txt') as file_object:
+    self.lines = file_object.readlines()
+    self.high_score = self.lines[0]
+
+# with open('filename.txt) as file_object: opens the all time hs file.
+# self.lines stores a list of all the lines in the file.
+# because there is only one line, self.lines[0] is the first and only item
+# in the list. therefore, self.lines[0] is the all time HS. it is a string.
+
+# However, in cases where the HS needs to be a number (in scoreboard.py, 
+# lines 47 and 59, I used the int() function. 
+
+# Here are prep_high_score() and check_high_score() in scoreboard.py.
+
+    def prep_high_score(self):
+        """Turn the high score into a rendered image."""
+        high_score = round(int(self.stats.high_score), -1)
+        high_score_str = "{:,}".format(high_score)
+        self.high_score_image = self.font.render(high_score_str,True,
+            self.text_color, self.settings.bg_color)
+
+        # Center the high score at the top of the screen.
+        self.high_score_rect = self.high_score_image.get_rect()
+        self.high_score_rect.centerx = self.screen_rect.centerx
+        self.high_score_rect.top = self.score_rect.top
+
+    def check_high_score(self):
+        """Check to see if there's a new high score."""
+        if self.stats.score > int(self.stats.high_score):
+            self.stats.high_score = self.stats.score
+            with open('all_time_hs.txt', "w") as file_object:
+                file_object.write(str(self.stats.high_score))
+            self.prep_high_score()
+
+# In check_high_score(), if the player's current score exceeds the all time HS,
+# the method opens all_time_hs.txt in write mode and overwrites the all time HS
+# with the player's current file.
+
+# That way, when a new game begins, game_stats.py reads off of the file
+# and retains the all time HS from previous sessions.
+
+# Exercise 14.6: Refactor the code. Look for methods that are doing more than
+# one task. For example, look at _check_bullet_alien_collisions(). 
+# Some of the code in this method currently starts a new level 
+# when a fleet of aliens is destroyed. Move this code to a function called
+# start_new_level().
+
+# Additionally, in scoreboard.py, move the four separate method calls 
+# in the __init__() method to a new method called prep_images().
+# You can also use the prep_images() method to refactor _check_play_button()
+# or start_game(). 
+
+# I strongly recommend saving the last working copy of the game,
+# making a new copy, and working on the new version.

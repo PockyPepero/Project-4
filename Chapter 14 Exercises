@@ -116,3 +116,25 @@ with open('all_time_hs.txt') as file_object:
 
 # I strongly recommend saving the last working copy of the game,
 # making a new copy, and working on the new version.
+
+# See the alien_invasion - refactor folder. I made the suggested changes
+# from the book. 
+
+# Exercise 14.7: Think of a way to expand the features of Alien Invasion.
+# Suggestions from the book: 
+# Have the aliens shoot bullets down at the ship.
+# Add shields. The shields should be able to be destroyed by any bullets.
+# Add sound effects. 
+
+# See the alien_invasion - sounds folder.
+# I used the mixer module to add sound effects and BG music.
+# In sounds.py, I initialized the mixer, and added methods 
+# for sound effects and bg music.
+# In the main alien invasion folder, I called the appropriate methods
+# when the game is initialized (starts BG music), when the game detects any
+# collision between aliens and bullets, and when a bullet is fired.
+
+# Exercise 14.8: Develop Sidways Shooter with the same final features
+# as the main version does. Add a play button, make the game speed up,
+# and develop a scoring system. Refactor the code.
+# Additionally, add new features that were not discussed in this chapter.

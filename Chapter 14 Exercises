@@ -138,3 +138,10 @@ with open('all_time_hs.txt') as file_object:
 # as the main version does. Add a play button, make the game speed up,
 # and develop a scoring system. Refactor the code.
 # Additionally, add new features that were not discussed in this chapter.
+
+# See alien_invasion - sideways. I made a 2-player version.
+# Player 1 controls the ship and shoots the aliens as normal.
+# Player 2 controls the green firing alien at the right side of the screen.
+# Player 2 uses W for up, S for down, 1 for fire.
+# Player 2's objective is to shoot the player three times to end the game.
+# Player 2 only gets one bullet at a time, since player 2 has the advantage.

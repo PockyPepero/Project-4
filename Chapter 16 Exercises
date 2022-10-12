@@ -1,0 +1,319 @@
+# First follow the instructions in the book to download
+# some data set from NOAA Climate Data website.
+# The zip code search did not work for me, so try searching a location name.
+# In your email, there should be a documentation file that explains
+# what the abbreviations for the columns stand for.
+
+# Exercise 16.1: Using the data file sitka_weather_2018_simple.csv,
+# make a visualization for the rainfall column (PRCP).
+# Repeat this exercise for the death valley data if desired.
+
+# Mostly the same code as from the book. The dataset includes decimal values
+# so be sure to convert the strings to float not int.
+
+# To see the death valley data simply replace the file name with 
+# 'data/death_valley_2018_simple.csv'
+
+import csv
+from datetime import datetime
+import matplotlib.pyplot as plt
+
+filename = 'data/sitka_weather_2018_simple.csv'
+with open(filename) as f:
+    reader = csv.reader(f)
+    header_row = next(reader)
+
+# Get the precipitation values from the file.
+    dates, prcps = [], []
+    for row in reader:
+        current_date = datetime.strptime(row[2], '%Y-%m-%d')
+        try:
+            prcp = float(row[3])
+        except ValueError:
+            print(f"Missing data for {current_date}")
+        else:
+            dates.append(current_date)
+            prcps.append(prcp)
+
+# Plot the precipitation values.
+    plt.style.use('seaborn')
+    fig, ax = plt.subplots()
+    ax.plot(dates, prcps, c='blue')
+
+# Format plot.
+    ax.set_title("Daily precipitation values 2018", fontsize=24)
+    ax.set_xlabel('',fontsize=16)
+    fig.autofmt_xdate() # makes the axes labels diagonal to avoid overlap
+    ax.set_ylabel("Precipitation (in.)", fontsize=16)
+    ax.tick_params(axis='both', which='major',labelsize=16)
+
+    plt.show()
+
+# Exercise 16.2: Change the settings for the y-axis on the charts in 
+# Figures 16-5 and 16-6 (the high and low temperature graphs for Sitka 
+# and Death Valley, respectively) to the same scale. 
+# Make a direct comparison between the temperature ranges.
+
+# Mostly follow the high and low temperature plots from the book.
+# To change the y-axis scale, add 
+
+ax.set_ylim([20,140])
+
+# right before plt.show() to set the min/max values on the axes.
+# I found that the range 20,140 will include both data sets.
+
+# Exercise 16.3: Download temperature data for San Francisco.
+# Make a high-low temperature plot for San Francisco and compare the data
+# to the data from Sitka and Death Valley.
+
+# As expected, the temperature ranges in San Francisco are more similar
+# to Death Valley than to Sitka.
+
+# Exercise 16.4: Right now, the indexes for the TMIN and TMAX columns 
+# are hard-coded. Use the header row to determine the indexes for these values.
+# Re-write the code to work for either Sitka or Death Valley.
+# Use the station name to automatically generate an appropriate title 
+# for the graph.
+
+# After row 8, header_row = next(reader) in the original code, 
+# add the following indexing code.
+
+for index, column_header in enumerate(header_row):
+    print(index, column_header)
+    if column_header == "TMAX":
+        TMAX_index = index
+    if column_header == "TMIN":
+        TMIN_index = index
+
+# This code looks at the column_headers and looks for "TMAX" and "TMIN"
+# to store under the variables TMAX_index and TMIN_index. 
+# This lets us automatically find the appropriate indexes without having
+# to hard code them in. Note: this only works if the column headers
+# are called TMAX and TMIN.
+
+# Right after the for loop that loops through the data (after line 29), add
+
+year = current_date.strftime("%Y")
+station_name = row[0]
+
+# This looks at the last current_date object used, and gets the year as
+# a string. Also, it looks at the last row used and finds the station name.
+# This works because the consistent formatting of the dates, with the year
+# always being first, as well as the station name always being the first
+# value in each row. The code stores these to use in the title of the graph.
+
+# In the plot formatting section (line 41), change the ax.set_title line to
+ax.set_title(f"Daily high and low temperatures {station_name} {year}", fontsize=24)
+# which automatically inserts the appropriate station name and year into the title.
+
+# In this particular case, matplotlib did not plot the data in order,
+# resulting in strange lines that appear to go backwards on the graph.
+# To fix this, all the data must be sorted in order.
+# Right before the plotting sections, add this line:
+
+dates_s,highs_s, lows_s  = zip(*sorted(zip(dates, highs, lows)))
+
+# full code:
+
+import csv
+from datetime import datetime
+import matplotlib.pyplot as plt
+
+filename = 'data/death_valley_2018_simple.csv'
+with open(filename) as f:
+    reader = csv.reader(f)
+    header_row = next(reader)
+
+    for index, column_header in enumerate(header_row):
+        print(index, column_header)
+        if column_header == "TMAX":
+            TMAX_index = index
+        if column_header == "TMIN":
+            TMIN_index = index
+
+# Get the dates, and the high and low temps from the file.
+    dates, highs, lows = [], [], []
+    for row in reader:
+        current_date = datetime.strptime(row[2], '%Y-%m-%d')
+        try:
+            high = int(row[TMAX_index])
+            low = int(row[TMIN_index])
+        except ValueError:
+            print(f"Missing data for {current_date}")
+        else:
+            dates.append(current_date)
+            highs.append(high)
+            lows.append(low)
+    year = current_date.strftime("%Y")
+    station_name = row[0]
+
+# Sort the data values.
+    dates_s,highs_s, lows_s  = zip(*sorted(zip(dates, highs, lows)))
+
+# Plot the high and low temperature values.
+    plt.style.use('seaborn')
+    fig, ax = plt.subplots()
+    ax.plot(dates, highs, c='red', alpha=0.5)
+    ax.plot(dates, lows, c='blue', alpha=0.5)
+    ax.fill_between(dates, highs, lows, facecolor='blue',alpha=0.1)
+
+# Format plot.
+    ax.set_title(f"Daily high and low temperatures {station_name} {year}", fontsize=24)
+    ax.set_xlabel('',fontsize=16)
+    fig.autofmt_xdate() # makes the axes labels diagonal to avoid overlap
+    ax.set_ylabel("Temperature (F)", fontsize=16)
+    ax.tick_params(axis='both', which='major',labelsize=16)
+    ax.set_ylim([20,140])
+    plt.show()
+
+# Exercise 16.5: Generate a few more visualizations that examine any other 
+# weather aspect you're interested for any locations you're curious about.
+
+# Code for plotting the precipitation in Paris.
+# Graph is in the data folder.
+
+import csv
+from datetime import datetime
+import matplotlib.pyplot as plt
+
+filename = 'data/paris_prcp_2022.csv'
+with open(filename) as f:
+    reader = csv.reader(f)
+    header_row = next(reader)
+
+    for index, column_header in enumerate(header_row):
+        print(index, column_header)
+        if column_header == "PRCP":
+            PRCP_index = index
+
+# Get the dates, and the high and low temps from the file.
+    dates, prcps = [], []
+    for row in reader:
+        current_date = datetime.strptime(row[2], '%Y-%m-%d')
+        try:
+            prcp = float(row[PRCP_index])    
+        except ValueError:
+            print(f"Missing data for {current_date}")
+        else:
+            dates.append(current_date)
+            prcps.append(prcp)
+    year = current_date.strftime("%Y")
+    station_name = row[0]
+
+# Sort the data values.
+    dates_s,prcps_s  = zip(*sorted(zip(dates, prcps)))
+
+# Plot the precipitation values.
+    plt.style.use('seaborn')
+    fig, ax = plt.subplots()
+    ax.plot(dates_s, prcps_s, c='blue')
+
+# Format plot.
+    ax.set_title(f"Daily precpitation {station_name} {year}", fontsize=24)
+    ax.set_xlabel('',fontsize=16)
+    fig.autofmt_xdate() # makes the axes labels diagonal to avoid overlap
+    ax.set_ylabel("Precipitation (in.)", fontsize=16)
+    ax.tick_params(axis='both', which='major',labelsize=16)
+    #ax.set_ylim([20,100])
+    plt.show()
+
+# Exercise 16.6: Refactoring using the earthquake visualization code.
+# In the loop that pulls data from all_eqn_dicts, it uses variables
+# for the magnitude, longitude, latitude, and titles before appending.
+# Refactor the code to eliminate these temporary variables.
+# This loop should only be 4 lines after this refactoring step.
+
+# Simply take the contents assigned to each temp. variable and insert it 
+# directly into the append statements.
+
+for eq_dict in all_eq_dicts:
+    mags.append(eq_dict['properties']['mag'])
+    lons.append(eq_dict['geometry']['coordinates'][0])
+    lats.append(eq_dict['geometry']['coordinates'][1])
+    hover_texts.append(eq_dict['properties']['title'])
+
+# Exercise 16.7: Use the title for the data set in the metadata part of the 
+# JSON file. Pull this title, assigned it to a variable, and use that title
+# to title the map in my_layout.
+
+# How to retrieve the title from the metadata:
+graph_title = all_eq_data['metadata']['title']
+
+# Using this as the title of the graph:
+my_layout = Layout(title=graph_title)
+
+# Exercise 16.8: Go to earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+# to find links to data sets containing earthquake data over various time 
+# periods. Download one of these data sets, and create a visualization
+# of the most recent earthquake activity.
+
+# As far as I'm aware, simply go to the website, look on the right-hand column
+# download and save the file into the same data folder you've been using,
+# and replace the file name in your code.
+
+# Exercise 16.9: Download the file world_fires_1_day.csv. 
+# This file contains information about fires across the world, 
+# including the latitude, longitude, and brightness of each fire.
+# Use .csv data processing and scattergeo plotting from this chapter
+# to create a visualization of the fire data.
+
+# Important note: this file has a lot of data, which may overload some PCs.
+# To combat this, the author of the book recommends writing the code so it 
+# only processes some of the data in the file.
+# To do this, you can set some number of lines (the author uses 10k, I'll use 1k)
+# and have the data processing loop stop at this number.
+
+import csv
+import json
+from plotly.graph_objs import Scattergeo, Layout
+from plotly import offline
+from datetime import datetime
+
+filename = 'data/world_fires_1_day.csv'
+with open(filename) as f:
+    reader = csv.reader(f)
+    header_row = next(reader)
+
+    # Get the latitudes, longitudes, and brightness values from the file.
+    dates, lats, lons, brights, hover_texts = [],[],[],[],[]
+    row_num = 0
+    num_rows = 1000
+    for row in reader:
+        try:
+            date = datetime.strptime(row[5], '%Y-%m-%d').date() 
+            # the .date() will eliminate the time part from the date.
+            # otherwise it will display 00:00:00 for all dates.
+            lat = float(row[0])
+            lon = float(row[1])
+            bright = float(row[2])
+        except ValueError:
+            print(f"Missing data for {date}.")
+        else:
+            dates.append(date)
+            lats.append(lat)
+            lons.append(lon)
+            brights.append(bright)
+        row_num += 1
+        if row_num == num_rows: # breaks the loop after 1,000 rows.
+            break
+
+# Map the fires.
+data = [{
+    'type': 'scattergeo',
+    'lon': lons,
+    'lat': lats,
+    'text': brights,
+    'marker': {
+        'size': [bright/20 for bright in brights],
+        'color': brights,
+        'colorscale': 'YlOrRd', # red/yellow color scheme, good for fire data.
+        'reversescale': True,
+        'colorbar': {'title': 'Brightness'}
+    },
+}]
+
+my_layout = Layout(title='Global Fires Across the Last 24 hrs')
+
+fig = {'data': data, 'layout': my_layout}
+offline.plot(fig, filename='global_fires.html')
+

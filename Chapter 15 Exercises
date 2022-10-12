@@ -1,0 +1,227 @@
+# Exercise 15.1: Plot the fist five cubic numbers. 
+# Then plot the first 5000 cubic numbers.
+
+# Plotting the first five cubic numbers.
+
+import matplotlib.pyplot as plt
+
+x_values = range(1,5)
+y_values = [x**3 for x in x_values]
+
+plt.style.use('seaborn-pastel')
+fig, ax = plt.subplots()
+ax.scatter(x_values, y_values,s=100)
+
+# Set chart title and label axes.
+ax.set_title("Cube Numbers", fontsize=24)
+ax.set_xlabel("Value", fontsize=24)
+ax.set_ylabel("Value", fontsize=24)
+
+# Set size of tick labels.
+ax.tick_params(axis='both', which='major', labelsize=14)
+
+plt.show()
+
+# For the first 5000 cubic numbers, change line 8 to x_values = range(1,5001)
+# It would also be good to make the dot size in line 13 smaller (ex. s=10)
+
+# Exercise 15.2: Apply a colormap to your cubes plot.
+# Change line 13 to 
+ax.scatter(x_values, y_values, c=y_values, cmap=plt.cm.Blues, s=100)
+# or some other colormap.
+
+# Exercise 15.3: Simulate the path of a pollen grain on the surface of the water.
+# To do this, modify rw_visual.py by replacing ax.scatter() with ax.plot()
+# Include a linewidth argument.
+# Use 5,000 points.
+
+# Most of the code remains the same.
+# Change the ax.scatter line to 
+ax.plot(rw.x_values, rw.y_values, linewidth=1)
+# The linewidth is deliberately narrow. If it's too thick, the individual
+# direction changes will be too hard to see.
+
+# Exercise 15.4: Modify the values in the choice lists to see what happens 
+# to the shape of the walks. Suggestions: try a longer list of choices 
+# for the distances, like 0-8 instead of 0-4, or removing -1 from the direction list.
+
+# Changing the possible distances from 0-8 lengthens the paths. This is more
+# obvious if the axes are left visible.
+
+# Removing the -1 from the direction list makes the path unable to go back
+# depending on where the -1 is removed.
+
+# For example, removing the -1 from the x list makes the path unable to go
+# back in the x-direction. The path can only move to the right, while still
+# being able to move up and down.
+
+# Removing the -1 from both lists makes the path only able to move straight
+# up and to the right.
+
+# Exercise 15.5: Refactor the fill_walk method. Create a new method called
+# get_step() to determine the direction and distance for each step,
+# then calculate the step. There should be two calls to get_step() in fill_walk():
+# x_step = self.get_step()
+# y_step = self.get_step()
+
+# I was honestly confused as to what exercise wanted, so I reproduced the
+# author's original solution. See random_walk folder for full code. 
+
+# He creates the new method get_step(), which has the lists for direction
+# and distance. Instead of making them specific to the x and y lists each,
+# he creates one generic distance and one generic direction list.
+# it calculates a generic step size by multiplying direction * distance
+# and returns the step size.
+
+# In fill_walk, he calls get_step() twice, once to create the list of x steps
+# and another for the y_steps. The rest of the code remains the same.
+
+# Exercise 15.6: Create a simulation for two D8 dice rolled 1000 times.
+# Try to picture what the distribution will look like, then run the simulation.
+# Try to increase the number of rolls and see what your system can handle.
+
+# The code remains mostly the same from the book. This time you will need
+# to specify the number of sides (8) when you call Die.
+# You also need to change the title of the graph to reflect two D8s.
+
+from plotly.graph_objs import Bar, Layout
+from plotly import offline
+
+from die import Die
+
+# Create 2 x D8 dice
+die_1 = Die(8)
+die_2 = Die(8)
+
+# Make some rolls, and store the results in a list.
+results = []
+for roll_num in range(1000):
+    result = die_1.roll() + die_2.roll()
+    results.append(result)
+
+# Analyze the results.
+frequencies = []
+max_result = die_1.num_sides + die_2.num_sides
+for value in range(2, max_result+1):
+    frequency = results.count(value)
+    frequencies.append(frequency)
+
+# Visualize the results.
+x_values = list(range(2, max_result+1))
+data = [Bar(x=x_values, y=frequencies)]
+
+x_axis_config = {'title':'Result','dtick':1}
+y_axis_config = {'title':'Frequency of Result'}
+
+my_layout = Layout(title='Results of rolling two D8 1000 times', 
+    xaxis=x_axis_config, yaxis=y_axis_config)
+offline.plot({'data': data, 'layout': my_layout}, filename='d8_d8.html')
+
+# Exercise 15.7: Create a visualization that shows what will happen
+# when you roll three D6 die.
+
+# The code remains mostly the same. Call Die() three times. 
+# Make sure to adjust the sum and range calculations accordingly.
+
+from plotly.graph_objs import Bar, Layout
+from plotly import offline
+
+from die import Die
+
+# Create 3 x D6 dice
+die_1 = Die()
+die_2 = Die()
+die_3 = Die()
+
+# Make some rolls, and store the results in a list.
+results = []
+for roll_num in range(1000):
+    result = die_1.roll() + die_2.roll() + die_3.roll()
+    results.append(result)
+
+# Analyze the results.
+frequencies = []
+max_result = die_1.num_sides + die_2.num_sides + die_3.num_sides
+for value in range(3, max_result+1):
+    frequency = results.count(value)
+    frequencies.append(frequency)
+
+# Visualize the results.
+x_values = list(range(3, max_result+1))
+data = [Bar(x=x_values, y=frequencies)]
+
+x_axis_config = {'title':'Result','dtick':1}
+y_axis_config = {'title':'Frequency of Result'}
+
+my_layout = Layout(title='Results of rolling three D6 1000 times', 
+    xaxis=x_axis_config, yaxis=y_axis_config)
+offline.plot({'data': data, 'layout': my_layout}, filename='d6_d6_d6.html')
+
+# Create a visualization that shows what happens when you multiply 
+# the faces of two D6 dice.
+
+from plotly.graph_objs import Bar, Layout
+from plotly import offline
+
+from die import Die
+
+# Create 2 x D6 dice
+die_1 = Die()
+die_2 = Die()
+
+# Make some rolls, and store the results in a list.
+results = []
+for roll_num in range(1000):
+    result = die_1.roll() * die_2.roll() 
+    results.append(result)
+
+# Analyze the results.
+frequencies = []
+max_result = die_1.num_sides * die_2.num_sides 
+for value in range(1, max_result+1):
+    frequency = results.count(value)
+    frequencies.append(frequency)
+
+# Visualize the results.
+x_values = list(range(1, max_result+1))
+data = [Bar(x=x_values, y=frequencies)]
+
+x_axis_config = {'title':'Result','dtick':1}
+y_axis_config = {'title':'Frequency of Result'}
+
+my_layout = Layout(title='Results of multiplying two D6 dice', 
+    xaxis=x_axis_config, yaxis=y_axis_config)
+offline.plot({'data': data, 'layout': my_layout}, filename='d6_d6_multiplied.html')
+
+# Exercise 15.9: Re-write the loops used for the dice, using list comprehension.
+
+# Syntax: new_list = [list_content for var in range(#)]
+# so replace results = [] and its loop with
+results = [die_1.roll() + die_2.roll() for roll_num in range(1000)]
+
+# and frequencies = [] and its loop with
+frequencies = [results.count(value) for value in range(2, max_result+1)]
+
+# Exercise 15.10: Use Matplotlib to make a die-rolling visualization
+# and use Plotly to make the visualization for a random walk.
+# You will need the documentation for both libraries for this exercise.
+
+# For the die-rolling visualization in matplotlib, 
+# see rolling_dice in die_using_mpl.py
+
+# For the random walk using Plotly, 
+# see rw_using_plotly.py
+
+# For the Plotly Random walk, you will need to install plotly.express.
+# For pip installation, simply copy-paste pip install plotly_express==0.4.0
+# into your terminal.
+
+# For other installation methods, see https://pypi.org/project/plotly-express/
+
+# Coding references:
+# https://www.tutorialspoint.com/matplotlib/matplotlib_bar_plot.htm#
+# https://plotly.com/python/line-charts/
+# https://plotly.com/python/dot-plots/
+
+
+

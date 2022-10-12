@@ -1,23 +1,73 @@
-def make_album(artist, album, songnumber=None):
-    """Makes a dictionary with an artist and album name.
-	Also has an optional argument for the number of songs in the album.
-	The function returns the user's input as a dictionary."""
-    album_dict = {'artist_name': artist, 'album_name': album, 
-    'song_count':songnumber}
-    return album_dict
+from operator import itemgetter
 
-while True:
-    """This loop prompts the user to enter the name of an artist and their album.
-	The loop allows the user to quit any time by entering 'q' when prompted.
-	The loop uses the make_album function to add the user's input to a dictionary.
-	""" 
-    print("\Enter the name of an artist.")
-    print("Enter 'q' at any time to quit.")
-    artist_name = input("What is the name of the artist? ")
-    if artist_name == 'q':
-        break
-    album_name = input("What is the name of their album? ")
-    if album_name == 'q':
-        break
-    aa_pair = make_album(artist_name, album_name)
-    print(aa_pair)
+import requests
+from plotly.graph_objs import Bar
+from plotly import offline
+
+# Make an API call and store the response.
+url = 'https://hacker-news.firebaseio.com/v0/topstories.json'
+r = requests.get(url)
+print(f"Status code: {r.status_code}")
+
+# Process information about each submission.
+submission_ids = r.json()
+submission_dicts = []
+for submission_id in submission_ids[:30]:
+    # Make a separate API call for each submission.
+    url = f"https://hacker-news.firebaseio.com/v0/item/{submission_id}.json"
+    r = requests.get(url)
+    print(f"id: {submission_id}\tstatus: {r.status_code}")
+    response_dict = r.json()
+    
+    # Build a dictionary for each article.
+    submission_dict = {
+        'title': response_dict['title'],
+        'hn_link': f"http://news.ycombinator.com/item?id={submission_id}",
+        'comments': response_dict.get('descendants'),
+    }
+    submission_dicts.append(submission_dict)
+    
+submission_dicts = sorted(submission_dicts, key=itemgetter('comments'),
+                            reverse=True)
+
+titles, descendants, labels = [], [], []
+for submission_dict in submission_dicts:
+    title = submission_dict['title']
+    titles.append(title)
+    article_url = submission_dict['hn_link']
+    article_link = f"<a href='{article_url}'>{title}</a>"
+    descendant = submission_dict['comments']
+    descendants.append(descendant)
+    #by = submission_dict['author']
+    #label = f"{article_link}<br />{by}"
+    #labels.append(label)
+
+data = [{
+        'type': 'bar',
+        'x': titles,
+        'y': descendants,
+        'hovertext': labels,
+        'marker': {
+            'color': 'rgb(60, 100, 150)',
+            'line': {'width': 1.5, 'color': 'rgb(25, 25, 25)'}
+        },
+        'opacity': 0.6,
+    }]
+
+my_layout = {
+        'title': f"Most-Commented Articles on HackerNews",
+        'titlefont': {'size': 28},
+        'xaxis': {
+            'title': 'Repository',
+            'titlefont': {'size': 24},
+            'tickfont': {'size': 14},
+            },
+        'yaxis': {
+            'title': 'Stars',
+            'titlefont': {'size': 24},
+            'tickfont': {'size': 14},
+            },
+    }
+
+fig = {'data': data, 'layout': my_layout}
+offline.plot(fig, filename='hn_article_chart.html')
